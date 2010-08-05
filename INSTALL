@@ -1,0 +1,60 @@
+ WebGBrowse Installation
+-------------------------
+
+I. Prerequisites
+
+	- GBrowse (>= 1.69)
+	- Perl Modules
+		CGI
+		Digest::MD5
+		Archive::Extract
+		File::Copy
+		File::Basename
+		File::Path
+		YAML
+		DBI
+		Exception::Class
+		Hash::Merge
+
+You can have multiple versions of GBrowse available. Please be aware that the perl libraries required by GBrowse 1.x are different from those required by GBrowse 2.0. But, we would recommend you to have one desired version of GBrowse.
+
+	
+II. Installation 
+
+	1. Install GBrowse x.x
+		For details on installing GBrowse, please visit http://gmod.org/wiki/GBrowse
+
+	2. Download the webgbrowse archive (http://webgbrowse.cgb.indiana.edu/webgbrowse/webgbrowse.v2.tar.gz) and extract the files into a separate directory (You must have already done this).
+
+	3. Copy the contents of WebGBrowse/src/v01/cgi-bin to your local cgi-bin directory.
+
+	4. Create a folder lib parallel to the cgi-bin folder. 
+		For eg: if your cgi-bin folder is /my/apache/directories/cgi-bin, make sure to have the folder /my/apache/directories/lib.
+
+	5. Copy the contents of WebGBrowse/src/v01/lib to the lib folder indicated above.
+
+	6. Prepare the folders files and tmp such that they are accessible to apache.
+
+	7. Copy the contents of WebGBrowse/src/v01/files to the files folder.
+
+	8. Open the lib/WebGB.pm file and set the values for the variables under the comment "Server Settings" (Lines 30 to 37).
+
+	9. Install MySQL.
+
+	10. Create a database by name WebGB.
+
+	11. Create a table WebGB_DataSets
+
+		CREATE TABLE WebGB_DataSets ( 
+			ID INT NOT NULL AUTO_INCREMENT, 
+			EMail CHAR(32) NOT NULL, 
+			Created TIMESTAMP DEFAULT NOW(), 
+			TSD CHAR(32) NOT NULL, 
+			Description TEXT NOT NULL, 
+			PRIMARY KEY (ID) 
+		);
+
+	12. Open the lib/WebGB/DBEngine.pm and edit the line 50 to provide the username and password for the mysql WebGB database.
+
+If you have any questions, please contact biohelp@cgb.indiana.edu
+

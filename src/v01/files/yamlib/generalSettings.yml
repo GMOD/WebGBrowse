@@ -1,0 +1,174 @@
+---
+TITLE: General Section
+sub:
+  - CONF_TAG: description
+    ERROR:
+      - not_null
+    HINT: Description of the database
+    LABEL: txtDescription
+    MAXLEN: 60
+    NAME: txtDescription
+    REQUIRED: 1
+    SIZE: 60
+    TIP: Description appears in the popup menu that allows users to select the data source and in the header of the page.
+    TITLE: Description
+    VALUE: My GFF Dataset
+  - CONF_TAG: show sources
+    HINT: Show/Hide the data sources
+    LABEL: chkShowSources
+    NAME: chkShowSources
+    OPTION: Show Sources
+    OPT_VAL: chkShowSources1
+    TIP: Determines whether or not to show the popup menu displaying the available data sources.
+    TITLE: Show Sources
+    VALUE: 0
+    templ: check
+  - CONF_TAG: plugins
+    HINT: List of plugins available
+    LABEL: chkPlugins
+    NAME: chkPlugins
+    OPTION:
+      - Align Two Sequences
+      - Aligner
+      - Attribute Hiliter
+      - Batch Dumper
+      - Blat
+      - CMap Dumper
+      - Create Blast DB
+      - Fasta Dumper
+      - Filter Test
+      - GFF Dumper
+      - GFF To Galaxy Dumper
+      - Gene Finder
+      - Oligo Finder
+      - Primer Designer
+      - Protein Dumper
+      - Random Gene
+      - Restriction Annotator
+      - Spectrogram
+      - Submitter
+      - Test
+    OPT_VAL:
+      - AlignTwoSequences
+      - Aligner
+      - AttributeHiliter
+      - BatchDumper
+      - Blat
+      - CMapDumper
+      - CreateBlastDB
+      - FastaDumper
+      - FilterTest
+      - GFFDumper
+      - GFFToGalaxyDumper
+      - GeneFinder
+      - OligoFinder
+      - PrimerDesigner
+      - ProteinDumper
+      - RandomGene
+      - RestrictionAnnotator
+      - Spectrogram
+      - Submitter
+      - test
+    TIP: Plugins are a way for third-party developers to add functionality to gbrowse without changing its core source code.
+    TITLE: Plugins
+    VALUE: GFFDumper
+    templ: modcheck
+templ: fieldset
+---
+JSHIDE: advanced
+TITLE: Advanced Section
+sub:
+  - CONF_TAG: hilite fill
+    ERROR:
+      - not_null
+    HINT: Interior color of the overview and regionview selection rectangles
+    LABEL: txtHiliteFill
+    MAXLEN: 60
+    NAME: txtHiliteFill
+    REQUIRED: 1
+    SIZE: 60
+    TIP: 'Hilite Fill Color controls the color of the interior of the selection rectangles that appear in the overview and regionview when zoomed into a region. Colors can be specified by name (e.g. yellow), or in HTML #RRGGBB format.'
+    TITLE: Hilite Fill Color
+    VALUE: yellow
+  - CONF_TAG: hilite outline
+    ERROR:
+      - not_null
+    HINT: Outline color of the overview and regionview selection rectangles
+    LABEL: txtHiliteOutline
+    MAXLEN: 60
+    NAME: txtHiliteOutline
+    REQUIRED: 1
+    SIZE: 60
+    TIP: 'Hilite Outline Color controls the color of the outline of the selection rectangles that appear in the overview and regionview when zoomed into a region. Colors can be specified by name (e.g. yellow), or in HTML #RRGGBB format.'
+    TITLE: Hilite Outline Color
+    VALUE: orange
+  - CONF_TAG: overview bgcolor
+    ERROR:
+      - not_null
+    HINT: Birds-eye view background color
+    LABEL: txtOverviewBGColor
+    MAXLEN: 60
+    NAME: txtOverviewBGColor
+    REQUIRED: 1
+    SIZE: 60
+    TIP: 'Overview Background Color controls the color of the background of the birds-eye view. Colors can be specified by name (e.g. yellow), or in HTML #RRGGBB format.'
+    TITLE: Overview Background Color
+    VALUE: white
+  - CONF_TAG: 'detailed bgcolor '
+    ERROR:
+      - not_null
+    HINT: Detailed view background color
+    LABEL: txtDetailedBGColor
+    MAXLEN: 60
+    NAME: txtDetailedBGColor
+    REQUIRED: 1
+    SIZE: 60
+    TIP: 'Detailed Background Color controls the color of the background of the detailed view. Colors can be specified by name (e.g. yellow), or in HTML #RRGGBB format.'
+    TITLE: Detailed Background Color
+    VALUE: white
+  - CONF_TAG: request timeout
+    ERROR:
+      - not_null
+      - digitonly
+    HINT: Timeout value for requests
+    LABEL: txtRequestTimeout
+    NAME: txtRequestTimeout
+    REQUIRED: 1
+    SIZE: 10
+    TIP: The requests from the user which take more than the Request Timeout seconds will be automatically timed out and the user will be advised to choose a smaller region. The default value is 60 seconds.
+    TITLE: Request Timeout (seconds)
+    VALUE: 60
+  - CONF_TAG: disable wildcards
+    HINT: Enable/Disable wildcard searching
+    LABEL: chkDisableWildcards
+    NAME: chkDisableWildcards
+    OPTION: Disable Wildcards
+    OPT_VAL: chkDisableWildcards1
+    TIP: 'This option if checked, disables wildcard searching by using asterisk (*).'
+    TITLE: Disable Wildcards
+    VALUE: 0
+    templ: check
+  - CONF_TAG: image widths
+    ERROR:
+      - not_null
+    HINT: Image sizes to be offered to the user
+    LABEL: txtImageWidths
+    NAME: txtImageWidths
+    REQUIRED: 1
+    SIZE: 60
+    TIP: Image Widths provides the set of image sizes to offer the user. Its value is a space-delimited list of pixel widths.
+    TITLE: Image Widths
+    VALUE: 640 800 1024
+  - CONF_TAG: default width
+    ERROR:
+      - not_null
+      - digitonly
+    HINT: Default Image Width
+    LABEL: txtDefaultWidth
+    NAME: txtDefaultWidth
+    REQUIRED: 1
+    SIZE: 10
+    TIP: It is the image width to start off with when the user invokes the browser for the first time.
+    TITLE: Default Image Width
+    VALUE: 800
+templ: fieldset

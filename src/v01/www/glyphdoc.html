@@ -1,0 +1,282 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>WebGBrowse</title>
+<link rev="made" href="mailto:mnrusimh" />
+<link rel="stylesheet" type="text/css" href="/include/css/site.css" />
+<link rel="stylesheet" type="text/css" href="/include/css/webgb_form.css" />
+<script src="/include/js/jquery.js" type="text/javascript"></script>
+<script src="/include/js/webgb_form.js" type="text/javascript"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body>
+
+		        <div id="container">
+                <div id="header">
+                        <img src="/include/img/webgbrowse.jpg" alt="The Center for Genomics and Bioinformatics - WebGBrowse" />
+                </div>
+                <div class="navbar">
+                        <ul id="topnav">
+                                <li><a href="/index.html">Home</a></li>
+                                <li><a href="/about.html">About</a></li>
+                                <li><a href="/tutorial.html">Tutorial</a></li>
+                                <li><a href="/glyphdoc.html">Glyph Library</a></li>
+                                <li><a href="/faq.html">FAQ</a></li>
+                                <li><a href="/software.html">Software</a></li>
+                                <li><a href="/support.html">Support</a></li>
+                        </ul>
+                </div>
+                <div id="wrapper">
+                        <div>
+
+<h3>Glyph Library</h3>
+  <hr>
+  <table align="center" cellpadding="3" width="99%">
+  	<tr>
+		<td>The "Glyph" option determines the shape of each of the displayed genomic features associated with a specific GBrowse track. It presents a configurable set of parameters specific to its type allowing further control over the display features such as height, color, width etc.  The Glyph Library page lists all the available glyphs for use with WebGBrowse.
+		</td>
+	</tr>
+</table>
+<br>
+  <table align="center" cellpadding="3" border="1" bordercolor="#b5eaaa" class="glyphreport">
+  <tr class="thead">
+    <th width="15%">Glyph</th>
+    <th width="35%">Description</th>
+    <th width="50%">Image</th>
+  </tr>
+  <tr class="trow">
+    <td valign="top">Generic</td>
+    <td valign="top">Generic is identical to the "box" glyph except that it will draw the subparts of features that contain subfeatures. "Generic" is the default glyph used in GBrowse.</td>
+    <td valign="top"><img src="/include/img/glyphs/generic.jpg"/></td>
+  </tr>
+  <tr class="trow">
+    <td valign="top">Anchored Arrow</td>
+    <td valign="top">The anchored_arrow glyph draws an arrowhead which is anchored at one or both ends (has a vertical base) or has one or more arrowheads. The arrowheads indicate that the feature does not end at the edge of the picture, but continues.</td>
+    <td valign="top"><img src="/include/img/glyphs/anchored_arrow.jpg"/></td>
+  </tr>
+  <tr class="trow">
+    <td valign="top">Arrow</td>
+    <td valign="top">The arrow glyph draws arrows which can be labeled, be oriented vertically or horizontally, or can contain major and minor ticks suitable for use as a scale.</td>
+    <td valign="top"><img src="/include/img/glyphs/arrow.jpg"/></td>
+  </tr>
+  <tr class="trow">
+    <td valign="top">Box</td>
+    <td valign="top">Box glyph is the most basic glyph. It draws a filled box and optionally a label, but It does not draw subparts.</td>
+    <td valign="top"><img src="/include/img/glyphs/box.jpg"/></td>
+  </tr>
+  <tr class="trow">
+    <td valign="top">Broken Line</td>
+    <td valign="top">Broken line glyph draws a straight line whose segment is shifted (sheared) up or down. There can be an optional beak (two diagonal lines passing between the main line and its segment). Either the left or the right side of the main line can be absent. The line can be of fixed size or extend to take up all available space.</td>
+    <td valign="top"><img src="/include/img/glyphs/broken_line.jpg"/></td>
+  </tr>
+  <tr class="trow">
+    <td valign="top">CDS</td>
+    <td valign="top">"cds" glyph draws features associated with a protein coding region. A series of color-coded boxes indicating the translation frame are drawn at high magnifications. But at low magnifications, the amino acid sequence of the resulting protein is drawn.</td>
+    <td valign="top"><img src="/include/img/glyphs/cds.jpg"/></td>
+  </tr>
+  <tr class="trow">
+    <td valign="top">Christmas Arrow</td>
+    <td valign="top">The Christmas Arrow glyph draws an arrow which has a circle ("christmas ball") dangling at one end.</td>
+    <td valign="top"><img src="/include/img/glyphs/christmas_arrow.jpg"/></td>
+  </tr>
+  <tr class="trow">
+    <td valign="top">Cross Box</td>
+    <td valign="top">Cross Box is a box with an "X" inside the glyph.</td>
+    <td valign="top"><img src="/include/img/glyphs/crossbox.jpg"/></td>
+  </tr>
+  <tr class="trow">
+    <td valign="top">Dashed Line</td>
+    <td valign="top">The dashed line glyph draws a dashed line. The lengths of the dash and the space are configurable. The space can be filled with a different color, thus making a two-colored line. Also, the two colors can be sheared.</td>
+    <td valign="top"><img src="/include/img/glyphs/dashed_line.jpg"/></td>
+  </tr>
+  <tr class="trow">
+    <td valign="top">Diamond</td>
+    <td valign="top">The diamond glyph draws a diamond of fixed size, positioned in the center of the feature. The height and width of the diamond are set by the height option.</td>
+    <td valign="top"><img src="/include/img/glyphs/diamond.jpg"/></td>
+  </tr>
+  <tr class="trow">
+    <td valign="top">Dot</td>
+    <td valign="top">The dot glyph draws an ellipse the width of the scaled feature passed, and configured height.</td>
+    <td valign="top"><img src="/include/img/glyphs/dot.jpg"/></td>
+  </tr>
+  <tr class="trow">
+    <td valign="top">Dumbbell</td>
+    <td valign="top">The dumbbell glyph draws a dumbbell with the same shapes on both ends.</td>
+    <td valign="top"><img src="/include/img/glyphs/dumbbell.jpg"/></td>
+  </tr>
+  <tr class="trow">
+    <td valign="top">Ellipse</td>
+    <td valign="top">Ellipse is identical to the "box" glyph except that it will draw an oval instead of a box. The width of the oval is determined by the feature width, and the height by the -height option.</td>
+    <td valign="top"><img src="/include/img/glyphs/ellipse.jpg"/></td>
+  </tr>
+  <tr class="trow">
+    <td valign="top">Ex</td>
+    <td valign="top">Ex is a box with an "X" inside the glyph.</td>
+    <td valign="top"><img src="/include/img/glyphs/ex.jpg"/></td>
+  </tr>
+  <tr class="trow">
+    <td valign="top">Flag</td>
+    <td valign="top">The flag glyph draws a flag with a text next to it.</td>
+    <td valign="top"><img src="/include/img/glyphs/flag.jpg"/></td>
+  </tr>
+   <tr class="trow">
+    <td valign="top">Gene</td>
+    <td valign="top">The gene glyph is used for drawing genes that may have alternatively-spliced transcripts. The various isoforms are stacked on top of each other and given a single label and description that apply to the entire stack. The name of each individual transcript is optionally printed to the left of the transcript glyph.</td>
+    <td valign="top"><img src="/include/img/glyphs/gene.jpg"/></td>
+  </tr>
+   <tr class="trow">
+    <td valign="top">Lightning</td>
+    <td valign="top">The lightning glyph draws a lightning bolt of specified height with relative width, with the point of the lightning bolt centered on the feature. The height of the bolt is specified by the height option. Due to the complexity of this glyph, it does not resolve well with heights less than 11 pixels. This glyph was designed to indicate point mutations on a nucleotide or protein backbone.</td>
+    <td valign="top"><img src="/include/img/glyphs/lightning.jpg"/></td>
+  </tr>
+   <tr class="trow">
+    <td valign="top">Line</td>
+    <td valign="top">The Line glyph draws a line parallel to the sequence segment.</td>
+    <td valign="top"><img src="/include/img/glyphs/line.jpg"/></td>
+  </tr>
+   <tr class="trow">
+    <td valign="top">Pentagram</td>
+    <td valign="top">The Pentagram glyph draws a pentagram with the sharp angle pointing right or, if the "inverted" option is set to 1, an "inverted" pentagram (with the sharp angle pointing inwards, not outwards). There may be an optional text above the glyph.</td>
+    <td valign="top"><img src="/include/img/glyphs/pentagram.jpg"/></td>
+  </tr>
+   <tr class="trow">
+    <td valign="top">PInsertion</td>
+    <td valign="top">The Pinsertion glyph was designed to show P-element insertions in the Drosophila genome, but in fact is suitable for any type of zero-width feature.</td>
+    <td valign="top"><img src="/include/img/glyphs/pinsertion.jpg"/></td>
+  </tr>
+   <tr class="trow">
+    <td valign="top">Primer</td>
+    <td valign="top">The Primers glyph draws two arrows oriented towards each other and connected by a line of a contrasting color. The length of the arrows is immaterial, but the length of the glyph itself corresponds to the length of the scaled feature.</td>
+    <td valign="top"><img src="/include/img/glyphs/primers.jpg"/></td>
+  </tr>
+   <tr class="trow">
+    <td valign="top">Processed Transcript</td>
+    <td valign="top">The processed_transcript glyph is used for drawing processed transcripts that have both CDS and UTR segments.</td>
+    <td valign="top"><img src="/include/img/glyphs/processed_transcript.jpg"/></td>
+  </tr>
+   <tr class="trow">
+    <td valign="top">Protein</td>
+    <td valign="top">The protein glyph draws protein sequences. At high magnifications, this glyph will draw the actual amino acids of the sequence. At low magnifications, the glyph will plot the Kyte-Doolite hydropathy. By default, the KD plot will use a window size of 9 residues, but this can be changed by specifying the kd_window option.</td>
+    <td valign="top"><img src="/include/img/glyphs/protein.jpg"/></td>
+  </tr>
+   <tr class="trow">
+    <td valign="top">Ragged Ends</td>
+    <td valign="top">The ragged_ends glyph draws boxes with the option of having right and/or left ends of the drawn box ragged with zigzags instead of vertical lines.</td>
+    <td valign="top"><img src="/include/img/glyphs/ragged_ends.jpg"/></td>
+  </tr>
+   <tr class="trow">
+    <td valign="top">Repeating Shape</td>
+    <td valign="top">The repeating_shape glyph is a generic superclass for drawing the same shape repeatedly.</td>
+    <td valign="top"><img src="/include/img/glyphs/repeating_shape.jpg"/></td>
+  </tr>
+   <tr class="trow">
+    <td valign="top">Rndrect (Rounded Rectangle)</td>
+    <td valign="top">The rndrect glyph is designed to show sequence features in round edge rectangles. The glyph will be a rectangle if its width is < 4 pixels.</td>
+    <td valign="top"><img src="/include/img/glyphs/rndrect.jpg"/></td>
+  </tr>
+   <tr class="trow">
+    <td valign="top">Ruler Arrow</td>
+    <td valign="top">The ruler_arrow glyph draws arrows which can be labeled 5' and 3', be oriented vertically or horizontally, or can contain major and minor ticks suitable for use as a scale.</td>
+    <td valign="top"><img src="/include/img/glyphs/ruler_arrow.jpg"/></td>
+  </tr>
+   <tr class="trow">
+    <td valign="top">Saw Teeth</td>
+    <td valign="top">The saw_teeth glyph draws a line of saw teeth.</td>
+    <td valign="top"><img src="/include/img/glyphs/saw_teeth.jpg"/></td>
+  </tr>
+   <tr class="trow">
+    <td valign="top">Segments</td>
+    <td valign="top">The segments glyph is used for drawing features that consist of discontinuous segments. Unlike "graded_segments" or "alignment", the segments are a uniform color and not dependent on the score of the segment.</td>
+    <td valign="top"><img src="/include/img/glyphs/segments.jpg"/></td>
+  </tr>
+   <tr class="trow">
+    <td valign="top">Span</td>
+    <td valign="top">Span glyph draws a span with the ends bordered by vertical lines.</td>
+    <td valign="top"><img src="/include/img/glyphs/span.jpg"/></td>
+  </tr>
+   <tr class="trow">
+    <td valign="top">Splice Site</td>
+    <td valign="top">Splice Site glyph was designed to show an inverted "L" representing splice donors and acceptors. The vertical part of the L points downwards and is positioned in the center of the range (even if the range is quite large).</td>
+    <td valign="top"><img src="/include/img/glyphs/splice_site.jpg"/></td>
+  </tr>
+  <tr class="trow">
+    <td valign="top">Text in Box</td>
+    <td valign="top">Text in Box glyph draws the specified text in a rectangular box.</td>
+    <td valign="top"><img src="/include/img/glyphs/text_in_box.jpg"/></td>
+  </tr>
+  <tr class="trow">
+    <td valign="top">Three Letter</td>
+    <td valign="top">The three_letters glyph draws groups of three letters separated by horizontal lines.</td>
+    <td valign="top"><img src="/include/img/glyphs/three_letters.jpg"/></td>
+  </tr>
+  <tr class="trow">
+    <td valign="top">Tic Tac Toe</td>
+    <td valign="top">Tic Tac Toe glyph draws a sequence of either "xxx", "ooo" or "xoxo", depending on the value of "mode".</td>
+    <td valign="top"><img src="/include/img/glyphs/tic_tac_toe.jpg"/></td>
+  </tr>
+  <tr class="trow">
+    <td valign="top">Transcript</td>
+    <td valign="top">The Transcript glyph is used for drawing transcripts. It is essentially a "segments" glyph in which the default connecting segments are hats. The direction of the transcript is indicated by an arrow attached to the end of the glyph.</td>
+    <td valign="top"><img src="/include/img/glyphs/transcript.jpg"/></td>
+  </tr>
+  <tr class="trow">
+    <td valign="top">Transcript 2</td>
+    <td valign="top">The Transcript2 glyph is used for drawing transcripts.  It is like "transcript" except that if there is sufficient room the terminal exon is shaped like an arrow in order to indicate the direction of transcription. If there is not enough room, a small arrow is drawn.</td>
+    <td valign="top"><img src="/include/img/glyphs/transcript2.jpg"/></td>
+  </tr>
+  <tr class="trow">
+    <td valign="top">Translation</td>
+    <td valign="top">Translation glyph draws the conceptual translation of DNA sequences. At high magnifications, it simply draws lines indicating open reading frames. At low magnifications, it draws a conceptual protein translation. Options can be used to set 1-frame, 3-frame or 6-frame translations.</td>
+    <td valign="top"><img src="/include/img/glyphs/translation.jpg"/></td>
+  </tr>
+  <tr class="trow">
+    <td valign="top">Triangle</td>
+    <td valign="top">Triangle glyph draws an equilateral triangle when -point is defined. It draws an isoceles triangle otherwise. It is possible to draw the triangle with the apex on the N, S, E, or W side.</td>
+    <td valign="top"><img src="/include/img/glyphs/triangle.jpg"/></td>
+  </tr>
+  <tr class="trow">
+    <td valign="top">Two Bolts</td>
+    <td valign="top">Two bolts glyph draws two "bolts" on a line.</td>
+    <td valign="top"><img src="/include/img/glyphs/two_bolts.jpg"/></td>
+  </tr>
+  <tr class="trow">
+    <td valign="top">Wave</td>
+    <td valign="top">The wave glyph draws a sine wave with an optional circle in the beginning. The wave can also become a straight line.</td>
+    <td valign="top"><img src="/include/img/glyphs/wave.jpg"/></td>
+  </tr>
+  <tr class="trow">
+    <td valign="top">Weighted Arrow</td>
+    <td valign="top">The Weighted Arrow glyph draws an arrow which has is "weighted" by a square on the left side of the glyph or a "weight" and a vertical line, but no arrow on its right side. The arrow/line is drawn with the foreground color, the square - with the background color. The first mode is the default. To get the second mode, specify the "left_alignment 0" option.</td>
+    <td valign="top"><img src="/include/img/glyphs/weighted_arrow.jpg"/></td>
+  </tr>
+  <tr class="trow">
+    <td valign="top">XY Plot</td>
+    <td valign="top">XYPlot glyph is used for drawing features that have a position on the genome and a numeric value. It can be used to represent gene prediction scores, motif-calling scores, percent similarity, microarray intensities, or other features that require a line plot. The X axis represents the position on the genome, as per all other glyphs. The Y axis represents the score. Options allow you to set the height of the glyph, the maximum and minimum scores, the color of the line and axis, and the symbol to draw.</td>
+    <td valign="top"><img src="/include/img/glyphs/xyplot.jpg"/></td>
+  </tr>
+</table>
+                                <div class="footer">
+                                <p>
+                                        <a href="http://www.indiana.edu">
+                                                <img src= "/include/img/blockiu_white.gif" alt="IU" name= "iub_image" width="22" height="28" hspace="0" vspace="0" border="0" id="iub_image" longdesc= "http://www.indiana.edu" />
+                                        </a>
+                                        <a href= "http://www.indiana.edu/comments/copyright.shtml" title="Copyright">
+                                                Copyright
+                                        </a>
+                                        &copy; The Trustees of
+                                        <a href="http://www.indiana.edu/" title= "Indiana University">
+                                                Indiana University
+                                        </a>
+                                        |
+                                        <a href= "http://www.indiana.edu/comments/complaint.shtml" title="Copyright  Complaints">
+                                                Copyright Complaints
+                                        </a>
+                                </p>
+                        </div>
+                </div>
+        </div> 
+	
+</body>
+</html>

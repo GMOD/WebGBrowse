@@ -1,0 +1,194 @@
+div#glyphForm {
+	position: absolute;
+	top: 125px;
+	width: 60%;
+	height: 80%;
+	overflow: auto;
+	background-color: #ffefff;
+	left: 20%;
+	border: 3px solid #000000;
+	/*filter:alpha(opacity=95); 
+	-moz-opacity: 0.95; 
+	opacity: 0.95;*/
+}
+
+fieldset {
+	width: 90%;
+	margin-left: 5%;
+	margin-bottom: .5em;
+}
+
+legend { 
+	color: #000000; 
+	font-weight: bold; 
+	font-size: 100%; 
+	margin: 0; 
+	padding: .25em .25em; 
+	background-color: #b5eaaa;
+	border: 1px solid #000000;
+}
+
+input.textInput, input.fileUpload { 
+	float: left;
+	margin: 0 .4em 0 0; 
+}
+
+label {
+	margin: 0 0 .5em 0;
+	display: block;
+	font-size: 90%;
+	font-weight: bold;
+}
+
+label.complex {
+	font-size: 75%;
+}
+      
+select { 
+	width: 40%;
+}
+
+select.complex {
+	width: 90%;
+}
+
+textarea { 
+	width: 53%;
+	height: 12em; 
+}
+textarea.complex {
+	width: 74.5%;
+	height: 14em;
+	background-color: #efefef;
+	color: #333333;
+	border: 1px solid #dfdfdf;
+}
+textarea.subComplex {
+	width: 90%;
+	height: 9em;
+	background-color: #efefef;
+	color: #333333;
+	border: 1px solid #dfdfdf;
+}
+textarea.subDeep {
+	background-color: #ffffcc;
+	color: #aaaaaa;
+}
+textarea.deep {
+	background-color: #eeeeee;
+	color: #aaaaaa;
+}
+
+.ctrlHolder { 
+	padding: 7px; 
+	/*border-bottom: 1px solid #dfdfdf;*/
+}
+
+.focused {
+	background: #fffeef;
+}
+
+.formHint {
+	margin: 0 0 0 45%;
+	color: #777000;
+	font-size: .9em;
+	/*text-align: right;*/
+}
+
+.textInput {
+	width: 40%;
+}
+
+.error { 
+	background: #ffdfdf; 
+	border: 1px solid #df7d7d; 
+	border-width: 1px 0; 
+}
+
+.errorField { 
+	color: #af4c4c; 
+	margin: 0 0 6px 0; 
+	padding: 4px; 
+	background: #ffbfbf; 
+}
+
+.buttonPanel {
+	padding: 7px;
+}
+
+.buttonHolder {
+	padding: 7px;
+}
+
+.intro {
+	margin: 0 0 .5em 0;
+	font-size: 75%;
+	/*color: #aaaaaa;*/
+color: #666666;
+}
+
+.complexLeft {
+	display: inline;
+	float: left;
+	width: 48%;
+}
+
+.complexRight {
+	display: inline;
+	float: right;
+	width: 48%;
+}
+
+.demoButton {
+	background-color: #dddddd;
+	color: #666666;
+}
+
+.deep {
+	background-color: #eeeeee;
+	color: #cccccc;
+}
+
+.report {
+	background-color: #ffffff;
+	color: #000000;
+	width: 50%;
+	border-color: #b5eaaa;
+}
+
+.glyphreport { 
+	background-color: #ffffff; 
+	color: #000000; 
+	width: 85%; 
+	border-color: #b5eaaa;
+	font-family: Arial;
+}
+
+.thead {
+	background-color: #056140;
+	color: #ffffff; 
+	border-bottom: 3px solid #ffffff;
+	text-align: left;
+	padding: 6px 6px 6px 12px;
+}
+
+.trow1 {
+	background-color: #b5eaaa;
+}
+
+.figurelegend {
+	font-style: italic;
+}
+
+.sample {
+	padding-left: 15px;
+	padding-right: 15px;
+	font-size: 11px;
+	line-height: 15px;
+	margin-top: 10px;
+	margin-left: 50px;
+	width: 75%;
+	display: block;
+	background-color: #eeeeee;
+	color: #000000;
+}

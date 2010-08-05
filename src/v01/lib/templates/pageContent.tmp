@@ -1,0 +1,35 @@
+	<div id="container">
+		<div id="header">
+			<img src="/include/img/webgbrowse.jpg" alt="The Center for Genomics and Bioinformatics - WebGBrowse" />
+		</div> 
+		<div class="navbar">
+			<ul id="topnav">
+				<li><a href="/index.html">Home</a></li>
+				<li><a href="/tools.html">Overview</a></li>
+				<li><a href="/support.html">Support</a></li>
+				<li><a href="/download.html">Download</a></li>
+			</ul>
+		</div>
+		<div id="wrapper">
+			<div>
+				<!--WebGB:core-->
+				<div class="footer">
+				<p>
+					<a href="http://www.indiana.edu">
+						<img src= "/include/img/blockiu_white.gif" alt="IU" name= "iub_image" width="22" height="28" hspace="0" vspace="0" border="0" id="iub_image" longdesc= "http://www.indiana.edu" />
+					</a>
+					<a href= "http://www.indiana.edu/comments/copyright.shtml" title="Copyright">
+						Copyright
+					</a>
+					&copy; The Trustees of 
+					<a href="http://www.indiana.edu/" title= "Indiana University">
+						Indiana University
+					</a>
+					| 
+					<a href= "http://www.indiana.edu/comments/complaint.shtml" title="Copyright  Complaints">
+						Copyright Complaints
+					</a>
+				</p>
+			</div>
+		</div>
+	</div>

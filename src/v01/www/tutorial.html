@@ -1,0 +1,452 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>WebGBrowse</title>
+<link rev="made" href="mailto:mnrusimh" />
+<link rel="stylesheet" type="text/css" href="/include/css/site.css" />
+<link rel="stylesheet" type="text/css" href="/include/css/webgb_form.css" />
+<script src="/include/js/jquery.js" type="text/javascript"></script>
+<script src="/include/js/webgb_form.js" type="text/javascript"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<style>
+h4 {
+	margin-left: 10px;
+}
+</style>
+</head>
+<body>
+
+		        <div id="container">
+
+                <div id="header">
+                        <img src="/include/img/webgbrowse.jpg" alt="The Center for Genomics and Bioinformatics - WebGBrowse" />
+                </div>
+                <div class="navbar">
+                        <ul id="topnav">
+                                <li><a href="/index.html">Home</a></li>
+
+                                <li><a href="/about.html">About</a></li>
+
+                                <li><a href="/tutorial.html">Tutorial</a></li>
+
+                                <li><a href="/glyphdoc.html">Glyph Library</a></li>
+                                <li><a href="/faq.html">FAQ</a></li>
+                                <li><a href="/software.html">Software</a></li>
+
+                                <li><a href="/support.html">Support</a></li>
+                        </ul>
+
+                </div>
+                <div id="wrapper">
+
+                        <div>
+<h1>Tutorial</h1>
+
+<p align="justify">This tutorial takes you through the various features available with WebGBrowse in order to configure your gff3 dataset for GBrowse. Before introducing you to the tutorial, we assume that you know how to load your data into a <a href="http://www.sequenceontology.org/gff3.shtml">GFF3 (General Feature Format version 3)</a> standard file. It is important to remember that WebGBrowse is designed for GBrowse versions 1.69 and above which use GFF3 format files (.gff3), not the GFF version 2 (.gff) files used by earlier GBrowse versions. The <a href="http://gmod.cvs.sourceforge.net/*checkout*/gmod/Generic-Genome-Browser/docs/tutorial/tutorial.html?pathrev=stable">GBrowse Administration Tutorial</a> (Lincoln Stein, 2008) has a <a href="http://gmod.cvs.sourceforge.net/*checkout*/gmod/Generic-Genome-Browser/docs/tutorial/tutorial.html?pathrev=stable#data_file">section introducing the GFF3 data file format</a> for first time users.</p> 
+
+
+<h3>Table of Contents</h3>
+<ol>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#sampleDataset">Sample Dataset</a></li>
+<li><a href="#input">Providing Input to WebGBrowse</a></li>
+<li><a href="#confPanel">Configuration Panel</a></li>
+<li><a href="#tracks">Working with Tracks</a></li>
+	<ul>
+    <li><a href="#add">Adding Tracks</a></li>
+    <li><a href="#modify">Modifying Tracks</a></li>
+    </ul>
+<li><a href="#links">Adding Links</a></li>
+<li><a href="#subparts">Displaying Features with Multiple Subparts</a></li>    
+<li><a href="#coding">Displaying Protein-Coding Genes</a></li>
+<li><a href="#frames">Reading Frames</a></li>
+<li><a href="#quant">Displaying Quantitative Data</a></li>
+<li><a href="#grouped">Displaying Grouped Features</a></li>
+<li><a href="#templateConf">Using a Pre-existing Configuration File as a Template</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ol>
+
+
+<a name="requirements"><h3>1. Requirements</h3></a>
+<p align="justify">
+You can run WebGBrowse either directly form <a href="/">our server</a> (<a href="/">http://webgbrowse.cgb.indiana.edu</a>) or you can download and install it locally. For details on downloading the standalone version and the installation instructions, please visit the <a href="software.html">software page</a>. The online version of WebGBrowse does not require any specific software to be installed on the client's side (except for a web browser). WebGBrowse is tested to work on IE 7.0 and above, Mozilla Firefox and Safari on Windows, Mac and Linux platforms. 
+</p>
+
+
+<a name="sampleDataset"><h3>2. Sample Dataset</h3></a>
+<p align="justify">
+In this tutorial, we will use a simulated Volvox genome annotation GFF3 dataset derived from the <a href="http://gmod.cvs.sourceforge.net/*checkout*/gmod/Generic-Genome-Browser/docs/tutorial/tutorial.html?pathrev=stable">GBrowse Administration Tutorial</a> from the GMOD website. This dataset presents different feature types (column3) that can be configured to illustrate default generic display, multi-segmented features, protein-coding genes, reading frames, grouped features and quantitative data display and this tutorial is intended to show you how to achieve that configuration using WebGBrowse. This dataset also includes the genome sequence information at the end in FASTA format. GBrowse associates this sequence information with the corresponding features that are being displayed. Download and save this <a href="/cgi-bin/downloadSample">sample dataset (volvox.gff3)</a> to your hard drive. Open a browser window and go to the <a href="/">WebGBrowse homepage</a> (<a href="/">http://webgbrowse.cgb.indiana.edu/</a>) from where you can upload your dataset (Figure 1).
+</p>
+
+<a name="fig1"></a>
+<p align="center">
+	<br />
+	<img src="/include/img/tutorial_fig1.jpg" alt="WebGBrowse Input Form" /><br />
+    <span class="figurelegend">Figure 1: WebGBrowse Input Form</span>
+    <br />
+    &nbsp;
+</p>
+
+<a name="input"><h3>3. Providing Input to WebGBrowse</h3></a>
+<p align="justify">
+Click the "Browse..." button in the "GFF3 File" section of the WebGBrowse Input Form and select the file, volvox.gff3, you downloaded <a href="#sampleDataset">earlier</a>. The input can also be provided as a compressed file in .zip or .gz format, provided the compressed file contains a single .gff3 file without any sub-directories. You can use an existing configuration file (if you have one) as a template instead of starting from the scratch. We recommend the usage of only those configuration files which are generated using WebGBrowse to be used as templates. There is a section on <a href="#templateConf">using a pre-existing configuration file as a template</a> included in this tutorial. For now, we will build the configuration right from the scratch. You can also enter your email address, which is optional. By providing email address you can perform the configuration in multiple sessions, receive the configuration results to your email and keep track of all your previous submissions. To learn more, please see the section on <a href="#templateConf">Tracking the Previous Submissions to WebGBrowse</a>. After entering the required input, click submit. Upon validating the contents of the input, WebGBrowse will navigate to the "Configuration Panel".
+</p>
+
+<a name="confPanel"><h3>4. Configuration Panel</h3></a>
+<p align="justify">
+The configuration panel is the place where you can add, edit or delete feature tracks for the GBrowse display of your dataset. If you have provided your email address in the <a href="#input">WebGBrowse input</a>, you will see a "Save Progress" button at the top right corner of the configuration panel which lets you perform the configuration process in multiple sessions. You can save your progress at any stage by clicking on that button and WebGBrowse will send a link to your email. You can resume your work by clicking on that link. You can provide a short description for your dataset in the "Description" field. For now, enter "Sample Volvox Dataset for WebGBrowse" as description.
+</p>
+
+<p align="justify">
+WebGBrowse populates the "Feature" listbox in the "Add New Track" section (Figure 2) with the list of the unique features derived from your dataset which can be configured into individual GBrowse tracks. This list is derived based on the values from the feature type column (column3) and the source column (column2) from the data. Besides each of the unique feature types (column3), the unique type:source (column3:column2) sets with common "type" values will form the items in the unique features list. For example, in the sample Volvox genome data, the feature type "<em>remark</em>" would make a single list item (since all the corresponding rows have the same source) where as the feature type "<em>CDS</em>" would make four list items - "<em>CDS</em>", "<em>CDS:example</em>", "<em>CDS:predicted</em>", "<em>CDS:exonerate</em>".
+</p>
+
+<p align="center">
+	<br />
+	<img src="/include/img/tutorial_fig2.jpg" alt="Add New Track Section in the Configuration Panel" /><br />
+    <span class="figurelegend">Figure 2: "Add New Track" Section in the Configuration Panel</span>
+    <br />
+    &nbsp;
+</p>
+
+<p align="justify">
+Next to the "Feature" list box, you will see a "Glyph" dropdown list (Figure 2) which contains the names of various glyphs available with WebGBrowse. A glyph determines the shape of each of the genomic features associated with a specific GBrowse track in the GBrowse display. It presents a configurable set of parameters specific to its type allowing further control over the display features such as height, color, width etc. The configuration panel is powered by a "Glyph Library" which stores the complete configuration details of the various glyphs available. For more details on the glyph library, please visit the <a href="/glyphdoc.html">glyph library page</a>. A short description and a sample image for the selected glyph will be displayed next to the glyph dropdown list.
+</p>
+
+<a name="tracks"><h3>5. Working with Tracks</h3></a>
+<p align="justify">
+<a name="add"><b>Adding Tracks</b></a><br />
+You can define the GBrowse tracks by associating a feature to be displayed with a glyph from the glyph library. If you open the contents of the <a href="/cgi-bin/downloadSample">volvox.gff3</a> file, you will notice a series of features of type"remark" as shown below.
+</p>
+
+<p>
+<pre class="sample">
+ctgA	example	remark	1659	1984	.	+	.	Name=f07;Note=This is an example
+ctgA	example	remark	3014	6130	.	+	.	Name=f06;Note=This is another example
+ctgA	example	remark	4715	5968	.	-	.	Name=f05;Note=Ok! Ok! I get the message.
+ctgA	example	remark	13280	16394	.	+	.	Name=f08
+ctgA	example	remark	15329	15533	.	+	.	Name=f10
+ctgA	example	remark	19157	22915	.	-	.	Name=f13
+...
+</pre> 
+</p>
+
+<p align="justify">
+Let's add a new track based on the feature <em>remark</em> using the <em>generic</em> glyph. In the configuration panel select "<em>remark</em>" from the feature list box and "<em>generic</em>" from the glyph list box and click "Add Track". It flashes the "Generic Glyph Parameters" form (Figure 3).
+</p>
+
+<p align="center">
+	<br />
+	<img src="/include/img/tutorial_fig3.jpg" alt="Glyph Parameters Form" /><br />
+    <span class="figurelegend">Figure 3: Glyph Parameters Form</span>
+    <br />
+    &nbsp;
+</p>
+
+<p align="justify">
+Change the "<em>Key</em>" to "ExampleFeatures" and "<em>Glyph Background Color</em>" to "navy". You may want to play with the other parameter values including those available in the "<em>Advanced Section</em>". A "<em>Save and Continue</em>" and a "<em>Cancel Changes</em>" buttons will be available at the top and bottom ends of the form. Once you are done setting the parameter values, click "<em>Save and Continue</em>" to add the new track and go back to the Configuration Panel. Since, we now have a track added, you will notice a new section "Tracks Added" extending the configuration panel(Figure 4). A <em>Configured Tracks</em> listbox shows the currently added tracks (currently the "remark" track). Selecting a track will display the configuration for the selected item in a <em>Configuration Settings</em> box on the right. 
+</p>
+
+<p align="center">
+	<br />
+	<img src="/include/img/tutorial_fig4.jpg" alt="Glyph Parameters Form" /><br />
+    <span class="figurelegend">Figure 4: "Tracks Added" Section in the Configuration Panel</span>
+    <br />
+    &nbsp;
+</p>
+
+<p align="justify">
+Click the "<em>Display in GBrowse 1.70</em>" button or "<em>Display in GBrowse 2.0</em>" button to display the configured dataset in your desired version of GBrowse (Figure 5). A WebGBrowse Control Panel hosting a "<em>Edit Configuration</em>" and a "<em>Download Configuration</em>" buttons is provided at the top of the GBrowse display. These buttons will enable you to go back to the Configuration panel to make further changes or to download the generated configuration file. You may <a href="#templateConf">use this downloaded configuration file as a template</a> while configuring other similar datasets.
+</p>
+
+<a name="fig5"></a>
+<p align="center">
+	<br />
+	<img src="/include/img/tutorial_fig5.jpg" alt="GBrowse Display with WebGBrowse Control Panel" /><br />
+    <span class="figurelegend">Figure 5: GBrowse Display with WebGBrowse Control Panel</span>
+    <br />
+    &nbsp;
+</p>
+
+<p align="justify">
+<a name="modify"><b>Modifying Tracks</b></a><br />
+You can edit or delete the added tracks by clicking on "<em>Edit Track</em>" or "<em>Delete Track</em>" buttons respectively in the configuration panel (Figure 4). Clicking the "<em>Edit Track</em>" button will open the configuration information for the selected track in the Glyph Parameters form (Figure 3) for editing. But, there is no direct way to change the glyph associated with a track, and should you decide to change, you will need to delete the track by clicking on "<em>Delete Track</em>" button and <a href="#add">add it once again</a>.
+</p>
+
+
+<a name="links"><h3>6. Adding Links</h3></a>
+<p align="justify">
+Let's examine a few more features by adding more tracks. From the configuration panel add a new track based on the feature "polypeptide_domain" and the glyph "span".
+</p>
+
+<p>
+<pre class="sample">
+ctgA	example	polypeptide_domain	11911	15561	.	+	.	Name=m11;Note=kinase
+ctgA	example	polypeptide_domain	13801	14007	.	-	.	Name=m05;Note=helix loop helix
+ctgA	example	polypeptide_domain	14731	17239	.	-	.	Name=m14;Note=kinase
+ctgA	example	polypeptide_domain	15396	16159	.	+	.	Name=m03;Note=zinc finger
+ctgA	example	polypeptide_domain	17023	17675	.	+	.	Name=m08;Note=7-transmembrane
+ctgA	example	polypeptide_domain	17667	17690	.	+	.	Name=m13;Note=DEAD box
+...
+</pre>
+</p>
+
+<p align="justify">
+In the "Span Glyph Parameters" form change the "Key" to "Example Motifs" and "Glyph Height" to "5". The default value for "Link" would be "AUTO" which makes GBrowse generate an automatic link to a helper script named "gbrowse_details". You can change it to any URL you may wish. You can also include any of the built in recognized variables such as $name, $description etc. For the complete list of recognized variables please see the sub-section "link" in <a href="http://gmod.org/wiki/GBrowse_Configuration_HOWTO">GBrowse Configuration HOWTO</a>. For now change the link to "http://www.google.com/search?q=$description" and click "Next". This will make GBrowse generate a link to google search page with the description being the search term.
+</p>
+
+<a name="subparts"><h3>7. Displaying Features with Multiple Subparts</h3></a>
+<p align="justify">
+The sample dataset contains features of type "match" as shown below. You will notice that multiple lines carry the same ID representing the subparts of the same feature. Such features can be best displayed using "segments" or "transcript" or "transcript2" glyphs.
+</p>
+
+<p>
+<pre class="sample">
+ctgA	example	match	32329	32359	.	+	.	ID=match-seg01;Name=seg01;Note=This is a segment
+ctgA	example	match	26122	26126	.	+	.	ID=match-seg02;Name=seg02
+ctgA	example	match	26497	26869	.	+	.	ID=match-seg02;Name=seg02
+ctgA	example	match	27201	27325	.	+	.	ID=match-seg02;Name=seg02
+ctgA	example	match	27372	27433	.	+	.	ID=match-seg02;Name=seg02
+ctgA	example	match	27565	27565	.	+	.	ID=match-seg02;Name=seg02
+...
+</pre>
+</p>
+
+<p align="justify">
+Add a track using the feature "match" and the glyph "segments". Change the "Key" to "Example Alignments", "Glyph Background Color" to "lightgrey" and "Connector Type" to "Solid" (Figure 6). You can also experiment with the glyphs "transcript" and "transcript2" to display features with subparts. For more description on these glyphs, please visit the <a href="/glyphdoc.html">glyph library page</a>. 
+</p>
+
+<p align="center">
+	<br />
+	<img src="/include/img/tutorial_fig6.jpg" alt="Segments Glyph Displaying Features with Multiple Subparts" /><br />
+    <span class="figurelegend">Figure 6: Segments Glyph Displaying Features with Multiple Subparts</span>
+    <br />
+    &nbsp;
+</p>
+
+<a name="coding"><h3>8. Displaying Protein-Coding Genes</h3></a>
+<p align="justify">
+The sample dataset we downloaded earlier contains the "<em>gene</em>" feature which is a three-tiered structure to represent the gene, descending from gene to mRNA to CDS and UTR features. The various parts fit together using ID and Parent features. The gene in our dataset is named EDEN with its three spliced forms named EDEN.1, EDEN.2 and EDEN.3.
+</p>
+
+<p>
+<pre class="sample">
+ctgA	example	gene	1050	9000	.	+	.	ID=EDEN;Name=EDEN;Note=protein kinase
+ctgA	example	mRNA	1050	9000	.	+	.	ID=EDEN.1;Parent=EDEN;Name=EDEN.1;Note=Eden splice form 1;Index=1
+ctgA	example	five_prime_UTR	1050	1200	.	+	.	Parent=EDEN.1
+ctgA	example	CDS	1201	1500	.	+	0	Parent=EDEN.1
+ctgA	example	CDS	3000	3902	.	+	0	Parent=EDEN.1
+ctgA	example	CDS	5000	5500	.	+	0	Parent=EDEN.1
+ctgA	example	CDS	7000	7608	.	+	0	Parent=EDEN.1
+ctgA	example	three_prime_UTR	7609	9000	.	+	.	Parent=EDEN.1
+
+ctgA	example	mRNA	1050	9000	.	+	.	ID=EDEN.2;Parent=EDEN;Name=EDEN.2;Note=Eden splice form 2;Index=1
+ctgA	example	five_prime_UTR	1050	1200	.	+	.	Parent=EDEN.2
+ctgA	example	CDS	1201	1500	.	+	0	Parent=EDEN.2
+ctgA	example	CDS	5000	5500	.	+	0	Parent=EDEN.2
+ctgA	example	CDS	7000	7608	.	+	0	Parent=EDEN.2
+ctgA	example	three_prime_UTR	7609	9000	.	+	.	Parent=EDEN.2
+
+ctgA	example	mRNA	1300	9000	.	+	.	ID=EDEN.3;Parent=EDEN;Name=EDEN.3;Note=Eden splice form 3;Index=1
+ctgA	example	five_prime_UTR	1300	1500	.	+	.	Parent=EDEN.3
+ctgA	example	five_prime_UTR	3000	3300	.	+	.	Parent=EDEN.3
+ctgA	example	CDS	3301	3902	.	+	0	Parent=EDEN.3
+ctgA	example	CDS	5000	5500	.	+	1	Parent=EDEN.3
+ctgA	example	CDS	7000	7600	.	+	1	Parent=EDEN.3
+ctgA	example	three_prime_UTR	7601	9000	.	+	.	Parent=EDEN.3
+</pre>
+</p>
+
+<p align="justify">
+The "gene" glyph can be used to depict alternatively spliced protein-coding genes. If you want to display the individual transcripts, use the "Processed Transcript" glyph (<a href="#transcript">see below</a>). Let's add a track for the feature "<em>gene</em>" and the glyph "<em>gene</em>" (Figure 7). Change the "<em>Key</em>" to "Protein-coding Genes", "<em>Glyph Background color</em>" to "peachpuff", "<em>Category</em>" to "Genes" and check the option "<em>Show Label Transcripts</em>". Changing the category will place the track under a different group in the gbrowse display. If you want to make the track look like UCSC Genome Browser, set "Glyph Background color" to "black", and in the "Transcript" section change "UTR Color" to "black" and check the options "Make UTRs thinner" and "Decorate Introns".
+</p>
+
+<a name="fig7"></a>
+<p align="center">
+	<br />
+	<img src="/include/img/tutorial_fig7.jpg" alt="Gene Glyph Displaying Alternatively Spliced Protein-Coding Genes" /><br />
+    <span class="figurelegend">Figure 7: Gene Glyph Displaying Alternatively Spliced Protein-Coding Genes</span>
+    <br />
+    &nbsp;
+</p>
+
+<p align="justify">
+The "<em>gene</em>" glyph can also be used to illustrate simpler genes. For example choose the feature "<em>CDS:predicted</em>" and the glyph "<em>gene</em>". Change the "<em>Key</em>" to "Predicted genes", "<em>Glyph Background Color</em>" to "white" and "<em>Category</em>" to "Genes" (Figure 8).
+</p>
+
+<p>
+<pre class="sample">
+ctgA	predicted	CDS	10000	11500	.	+	0	Name=Apple1;Note=A for Apple
+ctgA	predicted	CDS	13000	13800	.	+	0	ID=cds-Apple2;Name=Apple2;Note=AnotherApple
+ctgA	predicted	CDS	15000	15500	.	+	1	ID=cds-Apple2;Name=Apple2
+ctgA	predicted	CDS	17000	17200	.	+	2	ID=cds-Apple2;Name=Apple2
+</pre>
+</p>
+
+<p align="justify">
+The "<em>gene</em>" glyph can also be used to illustrate simpler genes. For example, choose the feature "<em>CDS:predicted</em>" and the glyph "<em>gene</em>". Change the "<em>Key</em>" to "Predicted genes", "<em>Glyph Background Color</em>" to "white" and "<em>Category</em>" to "Genes" (Figure 8).
+</p>
+
+<p align="center">
+	<br />
+	<img src="/include/img/tutorial_fig8.jpg" alt="Gene Glyph Displaying Simpler Genes" /><br />
+    <span class="figurelegend">Figure 8: Gene Glyph Displaying Simpler Genes</span>
+    <br />
+    &nbsp;
+</p>
+
+<a name="transcript"></a>
+<p align="justify">
+Our sample dataset also contains a set of features as shown below which represent a single transcript that has both coding and non-coding regions. This transcript can be displayed using the "<em>processed_transcript</em>" glyph (also known as "<em>so_transcript</em>").
+</p>
+
+<p>
+<pre class="sample">
+ctgA	exonerate	mRNA	17400	23000	.	+	.	ID=rna-Apple3;Name=Apple3;Note=Predicted
+ctgA	exonerate	UTR	17400	17999	.	+	.	Parent=rna-Apple3
+ctgA	exonerate	CDS	18000	18800	.	+	0	Parent=rna-Apple3
+ctgA	exonerate	CDS	19000	19500	.	+	1	Parent=rna-Apple3
+ctgA	exonerate	CDS	21000	21200	.	+	2	Parent=rna-Apple3
+ctgA	exonerate	UTR	21201	23000	.	+	.	Parent=rna-Apple3
+</pre>
+</p>
+
+<p align="justify">
+Choose the feature "<em>mRNA:exonerate</em>" and the glyph "<em>processed_transcript</em>". Change the "<em>Key</em>" to "Exonerate Predictions", "<em>Glyph Background Color</em>" to "beige" and "<em>Category</em>" to "Genes" (Figure 9).
+</p>
+
+<p align="center">
+	<br />
+	<img src="/include/img/tutorial_fig9.jpg" alt="processed_transcript Glyph Displaying Simpler Genes" /><br />
+    <span class="figurelegend">Figure 9: processed_transcript Glyph Displaying Simpler Genes</span>
+    <br />
+    &nbsp;
+</p>
+
+
+<a name="frames"><h3>9. Reading Frames</h3></a>
+<p align="justify">
+In the example described <a href="#coding">above</a> as shown in <a href="#fig7">Figure 7</a>, you can display whether the reading frame for the third exon is preserved between EDEN.1 and EDEN.3 using the "<em>cds</em>" glyph. Add a track using the feature "<em>mRNA</em>" and the glyph "<em>cds</em>". Change the "<em>Key</em>" to "Frame usage", "<em>Category</em>" to "Genes" and check the option "<em>Ignore features with empty phase value</em>" in the "<em>Advanced</em>" section (Figure 10). You can also change the color of the different frames in the "<em>Frames</em>" section.
+</p>
+
+<p align="center">
+	<br />
+	<img src="/include/img/tutorial_fig10.jpg" alt="cds Glyph Displaying Reading Frames" /><br />
+    <span class="figurelegend">Figure 10: cds Glyph Displaying Reading Frames</span>
+    <br />
+    &nbsp;
+</p>
+
+<a name="quant"><h3>10. Displaying Quantitative Data</h3></a>
+<p align="justify">
+You can plot microarray or tiling array data using the "xyplot" glyph. The sample dataset has lines with feature type "<em>microarray_oligo</em>" representing microarray data.
+</p>
+
+<p>
+<pre class="sample">
+ctgA	affy	microarray_oligo	1	100	281	.	.	Name=Expt1
+ctgA	affy	microarray_oligo	101	200	183	.	.	Name=Expt1
+ctgA	affy	microarray_oligo	201	300	213	.	.	Name=Expt1
+ctgA	affy	microarray_oligo	301	400	191	.	.	Name=Expt1
+ctgA	affy	microarray_oligo	401	500	288	.	.	Name=Expt1
+ctgA	affy	microarray_oligo	501	600	184	.	.	Name=Expt1
+...
+</pre>
+</p>
+
+<p align="justify">
+ Add a track with the feature "<em>microarray_oligo</em>" and the glyph "<em>xyplot</em>". Change the "<em>Key</em>" to "Transcriptional Profile", "<em>Graph Type</em>" to "Boxes" and "<em>Scale Position</em>" to "right" (Figure 11).
+</p>
+
+<p align="center">
+	<br />
+	<img src="/include/img/tutorial_fig11.jpg" alt="xyplot Glyph Displaying Microarray Data" /><br />
+    <span class="figurelegend">Figure 11: xyplot Glyph Displaying Microarray Data</span>
+    <br />
+    &nbsp;
+</p>
+
+<a name="grouped"><h3>11. Displaying Grouped Features</h3></a>
+<p align="justify">
+Finally, let us see how to group 5' and 3' EST reads. The sample dataset contains lines with feature type "<em>EST_match</em>" as shown below. The name of the feature represents the read to which it belongs. For example, the EST_match agt830.5 has a 5' read where as agt830.3 has a 3' read. 
+</p>
+
+<p>
+<pre class="sample">
+ctgA	est	EST_match	1050	1500	.	+	.	ID=Match1;Name=agt830.5;Target=agt830.5 1 451
+ctgA	est	EST_match	3000	3202	.	+	.	ID=Match1;Name=agt830.5;Target=agt830.5 452 654
+ctgA	est	EST_match	5410	5500	.	-	.	ID=Match2;Name=agt830.3;Target=agt830.3 505 595
+ctgA	est	EST_match	7000	7503	.	-	.	ID=Match2;Name=agt830.3;Target=agt830.3 1 504 
+ctgA	est	EST_match	1050	1500	.	+	.	ID=Match3;Name=agt221.5;Target=agt221.5 1 451
+ctgA	est	EST_match	5000	5500	.	+	.	ID=Match3;Name=agt221.5;Target=agt221.5 452 952
+ctgA	est	EST_match	7000	7300	.	+	.	ID=Match3;Name=agt221.5;Target=agt221.5 953 1253
+...
+</pre>
+</p>
+
+<p align="justify">
+Add a track with the feature "<em>EST_match</em>" and the glyph "<em>segments</em>". Change the "<em>Key</em>" to "ESTs", "<em>Glyph Background color</em>" to "orange", "<em>Glyph Height</em>" to "6" and "<em>Connector Type</em>" to "Solid" and proceed to the GBrowse display by clicking the button "<em>Display in GBrowse</em>". You will notice that the segments of the individual features are joined together, but the ESTs from individual reads are not grouped yet. (Figure 12).
+
+<p align="center">
+	<br />
+	<img src="/include/img/tutorial_fig12.jpg" alt="EST Match Display - Ungrouped" /><br />
+    <span class="figurelegend">Figure 12: EST Match Display - Ungrouped</span>
+    <br />
+    &nbsp;
+</p>
+
+<p align="justify">
+Let us group the ESTs with the same name together. From the WebGBrowse Control Panel, click the button "<em>Edit Configuration</em>" to proceed to the configuration panel. In the "<em>Tracks Added</em>" section, select the "<em>EST_match</em>" track from the "<em>Configured Tracks</em>" list and click the button "<em>Edit Track</em>". In the "<em>Segments Glyph Parameters</em>" form, change the value of "<em>Group Pattern</em>" in the "<em>Advanced</em>" section to "/\.[53]$/". This value is a regular expression that make the ESTs with same names but ending in ".3" or ".5" to be grouped (Figure 13). Save and proceed to the GBrowse display.
+</p>
+
+<p align="center">
+	<br />
+	<img src="/include/img/tutorial_fig13.jpg" alt="EST Match Display - Grouped Features" /><br />
+    <span class="figurelegend">Figure 13: EST Match Display - Grouped Features</span>
+    <br />
+    &nbsp;
+</p>
+
+<a name="templateConf"><h3>12. Using a Pre-existing Configuration File as a Template</h3></a>
+<p align="justify">
+You can use a pre-existing configuration file, such as the one downloaded from the WebGBrowse Control Panel in the GBrowse display (<a href="#fig5">see Figure 5</a>), as a template while configuring similar datasets, instead of starting from the scratch every single time. Download your configuration file by clicking the "<i>Download Configuration</i>" button in the WebGBrowse Control Panel (<a href="#fig5">Figure 5</a>), or download the <a href="/cgi-bin/downloadSampleConf">sample configuration file (volvox.conf)</a> provided in the WebGBrowse Input form (<a href="#fig1">see Figure 1</a>) of the <a href="/">WebGBrowse homepage</a> (<a href="/">http://webgbrowse.cgb.indiana.edu/</a>). Go to the <a href="/">WebGBrowse homepage</a> (<a href="/">http://webgbrowse.cgb.indiana.edu/</a>) and upload the volvox.gff3 and volvox.conf files as input for "GFF3 File" and "Configuration file to be used as template" fields respectively. You will notice in the "Tracks Added" section of the "Configuration Panel", the pre-configured tracks based on the template. WebGBrowse will ignore any tracks in the template associated with features that are missing in the uploaded dataset. You can <a href="#tracks">add more tracks or modify the existing tracks as described earlier</a>.
+</p>
+
+<p align="justify">
+We recommend the usage of only the configuration files generated using WebGBrowse as the templates. For advanced users, if you want to use the GBrowse configuration files from other sources, you may try by renaming the track stanzas in the pattern "Track" followed by a four digit number, for example, "[Track9999]", but renaming track stanzas can not guarantee those files to work accurately as template files.
+</p>
+
+<a name="conclusion"><h3>13. Conclusion</h3></a>
+<p align="justify">
+This tutorial is intended to give you a start with using WebGBrowse. It would be useful to explore other glyphs and their parameters which are not discussed above. Also, it is important to note that the role of WebGBrowse is only in generating the configuration information and hosting it on the GBrowse server. The actual display is generated by the <a href="http://gmod.org/wiki/Gbrowse">GBrowse</a> software itself. For details on the features available with GBrowse, please refer to the <a href="http://www.openhelix.com/gbrowse/">GBrowse user tutorial</a> from <a href="http://www.openhelix.com/">OpenHelix</a>. For questions, bug reports, support requests and suggestions please visit our <a href="/support.html">support page</a>.
+</p>
+
+<p class="intro">
+Page last updated by Ram Podicheti on January 25, 2010 11:14 AM EST
+</p>
+
+                                <div class="footer">
+                          <p>
+                                        <a href="http://www.indiana.edu">
+                                                <img src= "/include/img/blockiu_white.gif" alt="IU" name= "iub_image" width="22" height="28" hspace="0" vspace="0" border="0" id="iub_image" longdesc= "http://www.indiana.edu" />
+                                        </a>
+                                        <a href= "http://www.indiana.edu/comments/copyright.shtml" title="Copyright">
+                                                Copyright
+                                        </a>
+                                        &copy; The Trustees of
+                                        <a href="http://www.indiana.edu/" title= "Indiana University">
+                                                Indiana University
+                                        </a>
+                                        |
+                                        <a href= "http://www.indiana.edu/comments/complaint.shtml" title="Copyright  Complaints">
+                                                Copyright Complaints
+                                        </a>
+                                </p>
+                        </div>
+                </div>
+        </div> 
+	
+</body>
+</html>
