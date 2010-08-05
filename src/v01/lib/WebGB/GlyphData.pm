@@ -9,9 +9,6 @@
 #
 # Written by Ram Podicheti <mnrusimh@indiana.edu>
 #
-# Copyright (C) 2008 Ram Podicheti. All Rights Reserved.
-# Copyright (C) 2008 Indiana University.
-#
 # $ID: GlyphData.pm,v 0.01 2008/11/30 03:55:40 cgb Exp $
 #
 #============================================================================

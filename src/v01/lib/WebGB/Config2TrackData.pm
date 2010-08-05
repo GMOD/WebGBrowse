@@ -10,9 +10,6 @@
 #
 # Written by Ram Podicheti <mnrusimh@indiana.edu>
 #
-# Copyright (C) 2008 Ram Podicheti. All Rights Reserved.
-# Copyright (C) 2008 Indiana University.
-#
 # $ID: Config2TrackData.pm,v 0.01 2009/02/20 00:22:28 cgb Exp $
 #
 #============================================================================

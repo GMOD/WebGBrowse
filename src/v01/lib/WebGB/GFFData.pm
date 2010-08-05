@@ -8,9 +8,6 @@
 #
 # Written by Ram Podicheti <mnrusimh@indiana.edu>
 #
-# Copyright (C) 2008 Ram Podicheti. All Rights Reserved.
-# Copyright (C) 2008 Indiana University.
-#
 # $ID: GFFData.pm,v 0.01 2008/11/18 11:07:58 cgb Exp $
 #
 #============================================================================

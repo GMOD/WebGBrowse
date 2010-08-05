@@ -20,9 +20,6 @@
 #
 # Written by Ram Podicheti <mnrusimh@indiana.edu>
 #
-# Copyright (C) 2008 Ram Podicheti. All Rights Reserved.
-# Copyright (C) 2008 Indiana University.
-#
 # $ID: DBEngine.pm,v 0.01 2008/12/26 01:37:52 cgb Exp $
 #
 #============================================================================
