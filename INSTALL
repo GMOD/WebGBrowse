@@ -1,11 +1,13 @@
  WebGBrowse Installation
 -------------------------
 
+WebGBrowse 2.0 is tested on Linux OS. It requires GBrowse 1.70 or GBrowse 2.0 preinstalled. Even though WebGBrowse 2.0 is designed so as to support both versions of GBrowse simultaneously, the user can pick either of the two versions. When both the versions are installed together, WebGBrowse can be useful in upgrading the GBrowse configuration files from 1.70 to 2.0 or vice versa. The installation instructions and the software download links for GBrowse can be found at http://gmod.org/wiki/Gbrowse.
+
 I. Prerequisites
 
-	- GBrowse (>= 1.69)
+	- GBrowse (>= 1.70)
+	- MySQL
 	- Perl Modules
-		CGI
 		Digest::MD5
 		Archive::Extract
 		File::Copy
@@ -15,31 +17,75 @@ I. Prerequisites
 		DBI
 		Exception::Class
 		Hash::Merge
-
-You can have multiple versions of GBrowse available. Please be aware that the perl libraries required by GBrowse 1.x are different from those required by GBrowse 2.0. But, we would recommend you to have one desired version of GBrowse.
+	- ssmtp (debian package for sendmail program)
 
 	
 II. Installation 
 
 	1. Install GBrowse x.x
-		For details on installing GBrowse, please visit http://gmod.org/wiki/GBrowse
+		For details on installing GBrowse, please visit http://gmod.org/wiki/Gbrowse
 
-	2. Download the webgbrowse archive (http://webgbrowse.cgb.indiana.edu/webgbrowse/webgbrowse.v2.tar.gz) and extract the files into a separate directory (You must have already done this).
 
-	3. Copy the contents of WebGBrowse/src/v01/cgi-bin to your local cgi-bin directory.
+	You must have already completed Step 2, otherwise you wouldn't be reading this document. You may proceed to Step 3.
 
-	4. Create a folder lib parallel to the cgi-bin folder. 
-		For eg: if your cgi-bin folder is /my/apache/directories/cgi-bin, make sure to have the folder /my/apache/directories/lib.
+	2. Download the webgbrowse archive (http://webgbrowse.cgb.indiana.edu/webgbrowse/gmod-WebGBrowse.tar.gz) and extract the files into a separate directory.
 
-	5. Copy the contents of WebGBrowse/src/v01/lib to the lib folder indicated above.
+		wget http://webgbrowse.cgb.indiana.edu/gmod-WebGBrowse.tar.gz
+		tar -xvf gmod-WebGBrowse.tar.gz
 
-	6. Prepare the folders files and tmp such that they are accessible to apache.
 
-	7. Copy the contents of WebGBrowse/src/v01/files to the files folder.
+						Or
 
-	8. Open the lib/WebGB.pm file and set the values for the variables under the comment "Server Settings" (Lines 30 to 37).
+	
+	   Checkout a copy from https://gmod.svn.sourceforge.net/svnroot/gmod/WebGBrowse into a folder by name WebGBrowse.
+	
+		svn co https://gmod.svn.sourceforge.net/svnroot/gmod/WebGBrowse WebGBrowse
+	
+	
+	   All the extracted source files will be in a folder named "WebGBrowse".
 
-	9. Install MySQL.
+
+	3. Locate the cgi-bin directory for your apache instance and copy the contents of WebGBrowse/src/v01/webgb_cgiscripts into it.
+
+	4. Locate the htdocs directory for your apache instance and copy the contents of WebGBrowse/src/v01/webgb_pages into it.
+
+	5. Create a folder by name "lib" in the parent directory of the cgi-bin and copy the contents of WebGBrowse/src/v01/webgb_libraries into it.
+
+	6. Create a folder by name "files" in the parent directory of the cgi-bin and copy the contents of WebGBrowse/src/v01/webgb_files into it.
+
+	7. Finally create a folder by name "tmp" in the parent directory of the cgi-bin.
+
+	8. Open the lib/WebGB.pm file and set the values for the variables under the comment "Server Settings" (Lines 27 to 34).
+
+
+				Line 27: List the GBrowse versions you have installed (1.70 or 2.0 or both)
+				our @GBR_VER = ("1.70", "2.0"); 
+
+				Line 28: This will be the path to the "tmp" folder you created in Step. 7
+				our $TMP = 'path/to/tmp';
+
+				Line 29: This will be the path to "yamlib" folder copied into the "files" folder in Step. 6
+				our $YAML_LIB = 'path/to/files/yamlib';
+
+				Line 30: This will be the path to your sendmail program
+				our $SEND_MAIL = '/usr/sbin/sendmail';
+
+				Line 31: This will be the path to the "conf" directory of GBrowse 1.70 installation. If GBrowse 1.70 is not installed, leave it empty.
+				our $CONF = 'path/to/gbrowse/conf';
+
+				Line 32: This will be the path to the htdocs directory for your apache instance (see Step. 4). This variable needs to be set even if GBrowse 2.0 is the only version of GBrowse that is installed.
+				our $WWW = 'path/to/htdocs';
+
+				Line 33: This will be the path to the htdocs directory for the apache instance under which GBrowse 2.0 runs. If GBrowse 2.0 is not installed, leave it empty.
+				our $WWW2 = 'path/to/htdocs2';
+
+				If GBrowse 2.0 is the only GBrowse installation you have, $WWW2 (Line 33) will be same as $WWW (Line 32).
+
+				Line 34: This will be the path to the "conf" directory of GBrowse 2.0 installation. If GBrowse 2.0 is not installed, leave it empty.
+				our $CONF2 = 'path/to/gbrowse2_conf';
+
+
+	9. Install MySQL if you haven't already done so.
 
 	10. Create a database by name WebGB.
 
@@ -54,7 +100,7 @@ II. Installation
 			PRIMARY KEY (ID) 
 		);
 
-	12. Open the lib/WebGB/DBEngine.pm and edit the line 50 to provide the username and password for the mysql WebGB database.
+	12. Open the lib/WebGB/DBEngine.pm and edit the line 47 to provide the username and password for the mysql WebGB database.
 
-If you have any questions, please contact biohelp@cgb.indiana.edu
+If you have any questions, please contact biohelp@cgb.indiana.edu or gmod-webgbrowse@lists.sourceforge.net.
 
