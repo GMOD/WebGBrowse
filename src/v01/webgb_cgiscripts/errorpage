@@ -1,0 +1,45 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+use lib '../lib';
+use WebGB;
+use CGI qw(:standard);
+
+my $q = new CGI;
+
+my $status = $q->param('status');
+my $msg = $q->param('msg');
+
+my $sendmail = $WebGB::SEND_MAIL . ' -t';
+my $from = "From: webgbrowse\@cgb.indiana.edu\n";
+my $reply_to = "Reply-to: biohelp\@cgb.indiana.edu\n";
+my $subject  = "Subject: WebGBrowse Bug Report \n";
+my $content  = "Status Code: $status\n$msg";
+my $send_to  = "To: biohelp\@cgb.indiana.edu\n";
+if ($status) {
+	if ($msg) {
+		open(SENDMAIL, "|$sendmail") or die "Cannot open $sendmail: $!";
+		print SENDMAIL $from;
+		print SENDMAIL $reply_to;
+		print SENDMAIL $subject;
+		print SENDMAIL $send_to;
+		print SENDMAIL "Content-type: text/plain\n\n";
+		print SENDMAIL $content;
+		close(SENDMAIL);
+	}
+}
+
+print getStartHtml($q);
+print getContent(
+	qq(
+		<h1>Errors Occured</h1>
+		<h3>Details</h3>
+		<pre>     Status Code: $status\n     $msg</pre>
+		<p align="justify">
+			CGB is notified of this error and we will try to fix it as soon as possible. Meanwhile, if you would like to provide us with more details or suggestions, please write to <a href="mailto:biohelp\@cgb.indiana.edu">biohelp\@cgb.indiana.edu</a>.
+		</p>
+	)
+);
+print $q->end_html();
+

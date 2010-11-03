@@ -1,0 +1,36 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+use lib '../lib';
+use CGI qw(:standard);
+use WebGB;
+use WebGB::DBEngine;
+
+my $q = new CGI;
+my $emailAddressDigest = $q->url_param('ead');
+if ($emailAddressDigest eq '') {
+	print $q->redirect(
+		-location => '/'
+	);
+	exit(0);
+}
+
+my $dbh = webGBConnect;
+my @resultsDataSets = getHistory($emailAddressDigest, $dbh);
+my $content = "";
+my $i = 0;
+foreach (@resultsDataSets) {
+	$i++;
+	$content .= "<tr class=\"trow" . $i % 2 . "\"><td><a href=\"/cgi-bin/gbrowse/$_->[0]\">$_->[1]</a></td><td>$_->[2]</td></tr>";
+}
+if ($content eq '') {
+	$content = "We are sorry, no results associated with your email address are found.";
+} else {
+	$content = "<br><table align=\"center\" cellpadding=\"3\" class=\"report\"><tr><td>The table below provides the list of datasets you have uploaded so far.</td></tr></table><br><table align=\"center\" cellpadding=\"3\" border=\"1\" bordercolor=\"#b5eaaa\" rules=\"none\" class=\"report\"><tr class=\"thead\"><th width=\"70\%\">Dataset</th><th width=\"30\%\">Date Created</th></tr>$content</table>";
+}
+print getStartHtml($q);
+print getContent($content);
+print $q->end_html();
+
