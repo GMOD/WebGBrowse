@@ -5,10 +5,10 @@
 <head>
 <title>WebGBrowse</title>
 <link rev="made" href="mailto:mnrusimh" />
-<link rel="stylesheet" type="text/css" href="/include/css/site.css" />
-<link rel="stylesheet" type="text/css" href="/include/css/webgb_form.css" />
-<script src="/include/js/jquery.js" type="text/javascript"></script>
-<script src="/include/js/webgb_form.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="/webgbrowse/include/css/site.css" />
+<link rel="stylesheet" type="text/css" href="/webgbrowse/include/css/webgb_form.css" />
+<script src="/webgbrowse/include/js/jquery.js" type="text/javascript"></script>
+<script src="/webgbrowse/include/js/webgb_form.js" type="text/javascript"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <style>
 h4 {
@@ -21,21 +21,21 @@ h4 {
 		        <div id="container">
 
                 <div id="header">
-                        <img src="/include/img/webgbrowse.jpg" alt="The Center for Genomics and Bioinformatics - WebGBrowse" />
+                        <img src="/webgbrowse/include/img/webgbrowse.jpg" alt="The Center for Genomics and Bioinformatics - WebGBrowse" />
                 </div>
                 <div class="navbar">
                         <ul id="topnav">
-                                <li><a href="/index.html">Home</a></li>
+                                <li><a href="/webgbrowse/index.html">Home</a></li>
 
-                                <li><a href="/about.html">About</a></li>
+                                <li><a href="/webgbrowse/about.html">About</a></li>
 
-                                <li><a href="/tutorial.html">Tutorial</a></li>
+                                <li><a href="/webgbrowse/tutorial.html">Tutorial</a></li>
 
-                                <li><a href="/glyphdoc.html">Glyph Library</a></li>
-                                <li><a href="/faq.html">FAQ</a></li>
-                                <li><a href="/software.html">Software</a></li>
+                                <li><a href="/webgbrowse/glyphdoc.html">Glyph Library</a></li>
+                                <li><a href="/webgbrowse/faq.html">FAQ</a></li>
+                                <li><a href="/webgbrowse/software.html">Software</a></li>
 
-                                <li><a href="/support.html">Support</a></li>
+                                <li><a href="/webgbrowse/support.html">Support</a></li>
                         </ul>
 
                 </div>
@@ -71,19 +71,19 @@ h4 {
 
 <a name="requirements"><h3>1. Requirements</h3></a>
 <p align="justify">
-You can run WebGBrowse either directly form <a href="/">our server</a> (<a href="/">http://webgbrowse.cgb.indiana.edu</a>) or you can download and install it locally. For details on downloading the standalone version and the installation instructions, please visit the <a href="software.html">software page</a>. The online version of WebGBrowse does not require any specific software to be installed on the client's side (except for a web browser). WebGBrowse is tested to work on IE 7.0 and above, Mozilla Firefox and Safari on Windows, Mac and Linux platforms. 
+You can run WebGBrowse either directly form <a href="/webgbrowse/">our server</a> (<a href="/webgbrowse/">http://webgbrowse.cgb.indiana.edu</a>) or you can download and install it locally. For details on downloading the standalone version and the installation instructions, please visit the <a href="software.html">software page</a>. The online version of WebGBrowse does not require any specific software to be installed on the client's side (except for a web browser). WebGBrowse is tested to work on IE 7.0 and above, Mozilla Firefox and Safari on Windows, Mac and Linux platforms. 
 </p>
 
 
 <a name="sampleDataset"><h3>2. Sample Dataset</h3></a>
 <p align="justify">
-In this tutorial, we will use a simulated Volvox genome annotation GFF3 dataset derived from the <a href="http://gmod.cvs.sourceforge.net/*checkout*/gmod/Generic-Genome-Browser/docs/tutorial/tutorial.html?pathrev=stable">GBrowse Administration Tutorial</a> from the GMOD website. This dataset presents different feature types (column3) that can be configured to illustrate default generic display, multi-segmented features, protein-coding genes, reading frames, grouped features and quantitative data display and this tutorial is intended to show you how to achieve that configuration using WebGBrowse. This dataset also includes the genome sequence information at the end in FASTA format. GBrowse associates this sequence information with the corresponding features that are being displayed. Download and save this <a href="/cgi-bin/downloadSample">sample dataset (volvox.gff3)</a> to your hard drive. Open a browser window and go to the <a href="/">WebGBrowse homepage</a> (<a href="/">http://webgbrowse.cgb.indiana.edu/</a>) from where you can upload your dataset (Figure 1).
+In this tutorial, we will use a simulated Volvox genome annotation GFF3 dataset derived from the <a href="http://gmod.cvs.sourceforge.net/*checkout*/gmod/Generic-Genome-Browser/docs/tutorial/tutorial.html?pathrev=stable">GBrowse Administration Tutorial</a> from the GMOD website. This dataset presents different feature types (column3) that can be configured to illustrate default generic display, multi-segmented features, protein-coding genes, reading frames, grouped features and quantitative data display and this tutorial is intended to show you how to achieve that configuration using WebGBrowse. This dataset also includes the genome sequence information at the end in FASTA format. GBrowse associates this sequence information with the corresponding features that are being displayed. Download and save this <a href="/cgi-bin/webgbrowse/downloadSample">sample dataset (volvox.gff3)</a> to your hard drive. Open a browser window and go to the <a href="/webgbrowse/">WebGBrowse homepage</a> (<a href="/webgbrowse/">http://webgbrowse.cgb.indiana.edu/</a>) from where you can upload your dataset (Figure 1).
 </p>
 
 <a name="fig1"></a>
 <p align="center">
 	<br />
-	<img src="/include/img/tutorial_fig1.jpg" alt="WebGBrowse Input Form" /><br />
+	<img src="/webgbrowse/include/img/tutorial_fig1.jpg" alt="WebGBrowse Input Form" /><br />
     <span class="figurelegend">Figure 1: WebGBrowse Input Form</span>
     <br />
     &nbsp;
@@ -105,20 +105,20 @@ WebGBrowse populates the "Feature" listbox in the "Add New Track" section (Figur
 
 <p align="center">
 	<br />
-	<img src="/include/img/tutorial_fig2.jpg" alt="Add New Track Section in the Configuration Panel" /><br />
+	<img src="/webgbrowse/include/img/tutorial_fig2.jpg" alt="Add New Track Section in the Configuration Panel" /><br />
     <span class="figurelegend">Figure 2: "Add New Track" Section in the Configuration Panel</span>
     <br />
     &nbsp;
 </p>
 
 <p align="justify">
-Next to the "Feature" list box, you will see a "Glyph" dropdown list (Figure 2) which contains the names of various glyphs available with WebGBrowse. A glyph determines the shape of each of the genomic features associated with a specific GBrowse track in the GBrowse display. It presents a configurable set of parameters specific to its type allowing further control over the display features such as height, color, width etc. The configuration panel is powered by a "Glyph Library" which stores the complete configuration details of the various glyphs available. For more details on the glyph library, please visit the <a href="/glyphdoc.html">glyph library page</a>. A short description and a sample image for the selected glyph will be displayed next to the glyph dropdown list.
+Next to the "Feature" list box, you will see a "Glyph" dropdown list (Figure 2) which contains the names of various glyphs available with WebGBrowse. A glyph determines the shape of each of the genomic features associated with a specific GBrowse track in the GBrowse display. It presents a configurable set of parameters specific to its type allowing further control over the display features such as height, color, width etc. The configuration panel is powered by a "Glyph Library" which stores the complete configuration details of the various glyphs available. For more details on the glyph library, please visit the <a href="/webgbrowse/glyphdoc.html">glyph library page</a>. A short description and a sample image for the selected glyph will be displayed next to the glyph dropdown list.
 </p>
 
 <a name="tracks"><h3>5. Working with Tracks</h3></a>
 <p align="justify">
 <a name="add"><b>Adding Tracks</b></a><br />
-You can define the GBrowse tracks by associating a feature to be displayed with a glyph from the glyph library. If you open the contents of the <a href="/cgi-bin/downloadSample">volvox.gff3</a> file, you will notice a series of features of type"remark" as shown below.
+You can define the GBrowse tracks by associating a feature to be displayed with a glyph from the glyph library. If you open the contents of the <a href="/cgi-bin/webgbrowse/downloadSample">volvox.gff3</a> file, you will notice a series of features of type"remark" as shown below.
 </p>
 
 <p>
@@ -139,7 +139,7 @@ Let's add a new track based on the feature <em>remark</em> using the <em>generic
 
 <p align="center">
 	<br />
-	<img src="/include/img/tutorial_fig3.jpg" alt="Glyph Parameters Form" /><br />
+	<img src="/webgbrowse/include/img/tutorial_fig3.jpg" alt="Glyph Parameters Form" /><br />
     <span class="figurelegend">Figure 3: Glyph Parameters Form</span>
     <br />
     &nbsp;
@@ -151,7 +151,7 @@ Change the "<em>Key</em>" to "ExampleFeatures" and "<em>Glyph Background Color</
 
 <p align="center">
 	<br />
-	<img src="/include/img/tutorial_fig4.jpg" alt="Glyph Parameters Form" /><br />
+	<img src="/webgbrowse/include/img/tutorial_fig4.jpg" alt="Glyph Parameters Form" /><br />
     <span class="figurelegend">Figure 4: "Tracks Added" Section in the Configuration Panel</span>
     <br />
     &nbsp;
@@ -164,7 +164,7 @@ Click the "<em>Display in GBrowse 1.70</em>" button or "<em>Display in GBrowse 2
 <a name="fig5"></a>
 <p align="center">
 	<br />
-	<img src="/include/img/tutorial_fig5.jpg" alt="GBrowse Display with WebGBrowse Control Panel" /><br />
+	<img src="/webgbrowse/include/img/tutorial_fig5.jpg" alt="GBrowse Display with WebGBrowse Control Panel" /><br />
     <span class="figurelegend">Figure 5: GBrowse Display with WebGBrowse Control Panel</span>
     <br />
     &nbsp;
@@ -215,12 +215,12 @@ ctgA	example	match	27565	27565	.	+	.	ID=match-seg02;Name=seg02
 </p>
 
 <p align="justify">
-Add a track using the feature "match" and the glyph "segments". Change the "Key" to "Example Alignments", "Glyph Background Color" to "lightgrey" and "Connector Type" to "Solid" (Figure 6). You can also experiment with the glyphs "transcript" and "transcript2" to display features with subparts. For more description on these glyphs, please visit the <a href="/glyphdoc.html">glyph library page</a>. 
+Add a track using the feature "match" and the glyph "segments". Change the "Key" to "Example Alignments", "Glyph Background Color" to "lightgrey" and "Connector Type" to "Solid" (Figure 6). You can also experiment with the glyphs "transcript" and "transcript2" to display features with subparts. For more description on these glyphs, please visit the <a href="/webgbrowse/glyphdoc.html">glyph library page</a>. 
 </p>
 
 <p align="center">
 	<br />
-	<img src="/include/img/tutorial_fig6.jpg" alt="Segments Glyph Displaying Features with Multiple Subparts" /><br />
+	<img src="/webgbrowse/include/img/tutorial_fig6.jpg" alt="Segments Glyph Displaying Features with Multiple Subparts" /><br />
     <span class="figurelegend">Figure 6: Segments Glyph Displaying Features with Multiple Subparts</span>
     <br />
     &nbsp;
@@ -266,7 +266,7 @@ The "gene" glyph can be used to depict alternatively spliced protein-coding gene
 <a name="fig7"></a>
 <p align="center">
 	<br />
-	<img src="/include/img/tutorial_fig7.jpg" alt="Gene Glyph Displaying Alternatively Spliced Protein-Coding Genes" /><br />
+	<img src="/webgbrowse/include/img/tutorial_fig7.jpg" alt="Gene Glyph Displaying Alternatively Spliced Protein-Coding Genes" /><br />
     <span class="figurelegend">Figure 7: Gene Glyph Displaying Alternatively Spliced Protein-Coding Genes</span>
     <br />
     &nbsp;
@@ -291,7 +291,7 @@ The "<em>gene</em>" glyph can also be used to illustrate simpler genes. For exam
 
 <p align="center">
 	<br />
-	<img src="/include/img/tutorial_fig8.jpg" alt="Gene Glyph Displaying Simpler Genes" /><br />
+	<img src="/webgbrowse/include/img/tutorial_fig8.jpg" alt="Gene Glyph Displaying Simpler Genes" /><br />
     <span class="figurelegend">Figure 8: Gene Glyph Displaying Simpler Genes</span>
     <br />
     &nbsp;
@@ -319,7 +319,7 @@ Choose the feature "<em>mRNA:exonerate</em>" and the glyph "<em>processed_transc
 
 <p align="center">
 	<br />
-	<img src="/include/img/tutorial_fig9.jpg" alt="processed_transcript Glyph Displaying Simpler Genes" /><br />
+	<img src="/webgbrowse/include/img/tutorial_fig9.jpg" alt="processed_transcript Glyph Displaying Simpler Genes" /><br />
     <span class="figurelegend">Figure 9: processed_transcript Glyph Displaying Simpler Genes</span>
     <br />
     &nbsp;
@@ -333,7 +333,7 @@ In the example described <a href="#coding">above</a> as shown in <a href="#fig7"
 
 <p align="center">
 	<br />
-	<img src="/include/img/tutorial_fig10.jpg" alt="cds Glyph Displaying Reading Frames" /><br />
+	<img src="/webgbrowse/include/img/tutorial_fig10.jpg" alt="cds Glyph Displaying Reading Frames" /><br />
     <span class="figurelegend">Figure 10: cds Glyph Displaying Reading Frames</span>
     <br />
     &nbsp;
@@ -362,7 +362,7 @@ ctgA	affy	microarray_oligo	501	600	184	.	.	Name=Expt1
 
 <p align="center">
 	<br />
-	<img src="/include/img/tutorial_fig11.jpg" alt="xyplot Glyph Displaying Microarray Data" /><br />
+	<img src="/webgbrowse/include/img/tutorial_fig11.jpg" alt="xyplot Glyph Displaying Microarray Data" /><br />
     <span class="figurelegend">Figure 11: xyplot Glyph Displaying Microarray Data</span>
     <br />
     &nbsp;
@@ -391,7 +391,7 @@ Add a track with the feature "<em>EST_match</em>" and the glyph "<em>segments</e
 
 <p align="center">
 	<br />
-	<img src="/include/img/tutorial_fig12.jpg" alt="EST Match Display - Ungrouped" /><br />
+	<img src="/webgbrowse/include/img/tutorial_fig12.jpg" alt="EST Match Display - Ungrouped" /><br />
     <span class="figurelegend">Figure 12: EST Match Display - Ungrouped</span>
     <br />
     &nbsp;
@@ -403,7 +403,7 @@ Let us group the ESTs with the same name together. From the WebGBrowse Control P
 
 <p align="center">
 	<br />
-	<img src="/include/img/tutorial_fig13.jpg" alt="EST Match Display - Grouped Features" /><br />
+	<img src="/webgbrowse/include/img/tutorial_fig13.jpg" alt="EST Match Display - Grouped Features" /><br />
     <span class="figurelegend">Figure 13: EST Match Display - Grouped Features</span>
     <br />
     &nbsp;
@@ -411,7 +411,7 @@ Let us group the ESTs with the same name together. From the WebGBrowse Control P
 
 <a name="templateConf"><h3>12. Using a Pre-existing Configuration File as a Template</h3></a>
 <p align="justify">
-You can use a pre-existing configuration file, such as the one downloaded from the WebGBrowse Control Panel in the GBrowse display (<a href="#fig5">see Figure 5</a>), as a template while configuring similar datasets, instead of starting from the scratch every single time. Download your configuration file by clicking the "<i>Download Configuration</i>" button in the WebGBrowse Control Panel (<a href="#fig5">Figure 5</a>), or download the <a href="/cgi-bin/downloadSampleConf">sample configuration file (volvox.conf)</a> provided in the WebGBrowse Input form (<a href="#fig1">see Figure 1</a>) of the <a href="/">WebGBrowse homepage</a> (<a href="/">http://webgbrowse.cgb.indiana.edu/</a>). Go to the <a href="/">WebGBrowse homepage</a> (<a href="/">http://webgbrowse.cgb.indiana.edu/</a>) and upload the volvox.gff3 and volvox.conf files as input for "GFF3 File" and "Configuration file to be used as template" fields respectively. You will notice in the "Tracks Added" section of the "Configuration Panel", the pre-configured tracks based on the template. WebGBrowse will ignore any tracks in the template associated with features that are missing in the uploaded dataset. You can <a href="#tracks">add more tracks or modify the existing tracks as described earlier</a>.
+You can use a pre-existing configuration file, such as the one downloaded from the WebGBrowse Control Panel in the GBrowse display (<a href="#fig5">see Figure 5</a>), as a template while configuring similar datasets, instead of starting from the scratch every single time. Download your configuration file by clicking the "<i>Download Configuration</i>" button in the WebGBrowse Control Panel (<a href="#fig5">Figure 5</a>), or download the <a href="/cgi-bin/webgbrowse/downloadSampleConf">sample configuration file (volvox.conf)</a> provided in the WebGBrowse Input form (<a href="#fig1">see Figure 1</a>) of the <a href="/webgbrowse/">WebGBrowse homepage</a> (<a href="/webgbrowse/">http://webgbrowse.cgb.indiana.edu/</a>). Go to the <a href="/webgbrowse/">WebGBrowse homepage</a> (<a href="/webgbrowse/">http://webgbrowse.cgb.indiana.edu/</a>) and upload the volvox.gff3 and volvox.conf files as input for "GFF3 File" and "Configuration file to be used as template" fields respectively. You will notice in the "Tracks Added" section of the "Configuration Panel", the pre-configured tracks based on the template. WebGBrowse will ignore any tracks in the template associated with features that are missing in the uploaded dataset. You can <a href="#tracks">add more tracks or modify the existing tracks as described earlier</a>.
 </p>
 
 <p align="justify">
@@ -420,7 +420,7 @@ We recommend the usage of only the configuration files generated using WebGBrows
 
 <a name="conclusion"><h3>13. Conclusion</h3></a>
 <p align="justify">
-This tutorial is intended to give you a start with using WebGBrowse. It would be useful to explore other glyphs and their parameters which are not discussed above. Also, it is important to note that the role of WebGBrowse is only in generating the configuration information and hosting it on the GBrowse server. The actual display is generated by the <a href="http://gmod.org/wiki/Gbrowse">GBrowse</a> software itself. For details on the features available with GBrowse, please refer to the <a href="http://www.openhelix.com/gbrowse/">GBrowse user tutorial</a> from <a href="http://www.openhelix.com/">OpenHelix</a>. For questions, bug reports, support requests and suggestions please visit our <a href="/support.html">support page</a>.
+This tutorial is intended to give you a start with using WebGBrowse. It would be useful to explore other glyphs and their parameters which are not discussed above. Also, it is important to note that the role of WebGBrowse is only in generating the configuration information and hosting it on the GBrowse server. The actual display is generated by the <a href="http://gmod.org/wiki/Gbrowse">GBrowse</a> software itself. For details on the features available with GBrowse, please refer to the <a href="http://www.openhelix.com/gbrowse/">GBrowse user tutorial</a> from <a href="http://www.openhelix.com/">OpenHelix</a>. For questions, bug reports, support requests and suggestions please visit our <a href="/webgbrowse/support.html">support page</a>.
 </p>
 
 <p class="intro">
@@ -430,7 +430,7 @@ Page last updated by Ram Podicheti on January 25, 2010 11:14 AM EST
                                 <div class="footer">
                           <p>
                                         <a href="http://www.indiana.edu">
-                                                <img src= "/include/img/blockiu_white.gif" alt="IU" name= "iub_image" width="22" height="28" hspace="0" vspace="0" border="0" id="iub_image" longdesc= "http://www.indiana.edu" />
+                                                <img src= "/webgbrowse/include/img/blockiu_white.gif" alt="IU" name= "iub_image" width="22" height="28" hspace="0" vspace="0" border="0" id="iub_image" longdesc= "http://www.indiana.edu" />
                                         </a>
                                         <a href= "http://www.indiana.edu/comments/copyright.shtml" title="Copyright">
                                                 Copyright
@@ -443,6 +443,10 @@ Page last updated by Ram Podicheti on January 25, 2010 11:14 AM EST
                                         <a href= "http://www.indiana.edu/comments/complaint.shtml" title="Copyright  Complaints">
                                                 Copyright Complaints
                                         </a>
+					|
+					<a href="http://gmod.org/">
+						<img src="http://gmod.org/w/images/e/e3/PoweredByGMOD80.png" alt="Powered by GMOD" style="border-width: 0" />
+					</a>
                                 </p>
                         </div>
                 </div>

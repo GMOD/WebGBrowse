@@ -195,7 +195,8 @@ sub _isValidScore {
 	my $score = $self->{'SCORE'};
 	my $returnValue = 0;
 	if (defined $score) {
-		$returnValue = 1 if ($score =~ /^(\d+\.?\d*|\.\d+|\.)$/);
+#		$returnValue = 1 if ($score =~ /^(\d+\.?\d*|\.\d+|\.)$/);
+		$returnValue = 1 if (($score =~ /^(\d+\.?\d*|\.\d+|\.)$/) or ($score =~ /^[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$/));
 	}
 	return $returnValue;
 }

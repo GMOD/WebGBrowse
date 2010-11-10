@@ -3,7 +3,7 @@
 use warnings;
 use strict;
 
-use lib '../lib';
+use lib '../../lib';
 use CGI qw(:standard);
 use WebGB;
 
@@ -23,12 +23,12 @@ $content .= qq(
 	</p>
 	<p>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="http://$ENV{SERVER_NAME}/cgi-bin/configureTracks?tsd=$timeStampDigest">
-			http://$ENV{SERVER_NAME}/cgi-bin/configureTracks?tsd=$timeStampDigest
+		<a href="http://$ENV{SERVER_NAME}/cgi-bin/webgbrowse/configureTracks?tsd=$timeStampDigest">
+			http://$ENV{SERVER_NAME}/cgi-bin/webgbrowse/configureTracks?tsd=$timeStampDigest
 		</a>
 	</p>
 	<p align="justify">
-		If you have any questions or suggestions, please contact biohelp\@cgb.indiana.edu. Thanks for using WebGBrowse.
+		If you have any questions or suggestions, please contact biohelp\@cgb.indiana.edu or gmod-webgbrowse\@lists.sourceforge.net. Thanks for using WebGBrowse.
 	</p>
 	<p>
 		<br>

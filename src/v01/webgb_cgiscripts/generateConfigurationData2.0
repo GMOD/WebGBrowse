@@ -3,7 +3,7 @@
 use warnings;
 use strict;
 
-use lib '../lib';
+use lib '../../lib';
 use CGI qw(:standard);
 use WebGB;
 use WebGB::GeneralData;
@@ -103,7 +103,7 @@ foreach (sort(keys %{$trackConfigurationData{'Tracks'}})) {
 }
 
 print CONFIGURATION "\ndefault features = $defFeatures\n";
-print CONFIGURATION qq(header = <div id="container"><div id="header"><img src="/include/img/webgbrowse.jpg" alt="The Center for Genomics and Bioinformatics - WebGBrowse" /></div><div class="navbar"><ul id="topnav"><li><a href="http://webgbrowse.cgb.indiana.edu/index.html">Home</a></li><li><a href="http://webgbrowse.cgb.indiana.edu/about.html">About</a></li><li><a href="http://webgbrowse.cgb.indiana.edu/tutorial.html">Tutorial</a></li><li><a href="http://webgbrowse.cgb.indiana.edu/glyphdoc.html">Glyph Library</a></li><li><a href="http://webgbrowse.cgb.indiana.edu/faq.html">FAQ</a></li><li><a href="http://webgbrowse.cgb.indiana.edu/software.html">Software</a></li><li><a href="http://webgbrowse.cgb.indiana.edu/support.html">Support</a></li></ul></div></div><p><font size="4"><b>$description</b></font></p><a name="webgb"><div><div class="ctl_hidden" onclick="visibility('webgb_panel',1)" id="webgb_panel_show" style="display:none"><img src="/gbrowse2/images/buttons/plus.png" alt="+" />&nbsp;<span class="tctl"><b>WebGBrowse Control Panel</b></span></div><div class="ctl_visible" onclick="visibility('webgb_panel',0)" id="webgb_panel_hide" style="display:inline"><img src="/gbrowse2/images/buttons/minus.png" alt="-" />&nbsp;<span class="tctl"><b>WebGBrowse Control Panel</b></span></div><div class="el_visible" id="webgb_panel" style="display:inline"><table class="searchtitle" border="0" cellspacing="0" width="100%"><tr class="searchbody"><td width="20%"><input type="button" class="ctrlpnlbtn" name="cmdEdit" value="Edit Configuration" onclick="location.href='http://webgbrowse.cgb.indiana.edu/cgi-bin/configureTracks?tsd=$timeStampDigest';" /></td><td width="80%">Click <b>Edit Configuration</b> to return to the track configuration panel</td></tr><tr class="searchbody"><td><input type="button" class="ctrlpnlbtn" name="cmdDownload" value="Download Configuration" onclick="window.open('http://webgbrowse.cgb.indiana.edu/cgi-bin/downloadConf2?tsd=$timeStampDigest');" /></td><td>Click <b>Download Configuration</b> to download the configuration file</td></tr></table></div></div></a> #WEBGB#\n);
+print CONFIGURATION qq(header = <div id="container"><div id="header"><img src="/include/img/webgbrowse.jpg" alt="The Center for Genomics and Bioinformatics - WebGBrowse" /></div><div class="navbar"><ul id="topnav"><li><a href="http://webgbrowse.cgb.indiana.edu/webgbrowse/index.html">Home</a></li><li><a href="http://webgbrowse.cgb.indiana.edu/webgbrowse/about.html">About</a></li><li><a href="http://webgbrowse.cgb.indiana.edu/webgbrowse/tutorial.html">Tutorial</a></li><li><a href="http://webgbrowse.cgb.indiana.edu/webgbrowse/glyphdoc.html">Glyph Library</a></li><li><a href="http://webgbrowse.cgb.indiana.edu/webgbrowse/faq.html">FAQ</a></li><li><a href="http://webgbrowse.cgb.indiana.edu/webgbrowse/software.html">Software</a></li><li><a href="http://webgbrowse.cgb.indiana.edu/webgbrowse/support.html">Support</a></li></ul></div></div><p><font size="4"><b>$description</b></font></p><a name="webgb"><div><div class="ctl_hidden" onclick="visibility('webgb_panel',1)" id="webgb_panel_show" style="display:none"><img src="/gbrowse2/images/buttons/plus.png" alt="+" />&nbsp;<span class="tctl"><b>WebGBrowse Control Panel</b></span></div><div class="ctl_visible" onclick="visibility('webgb_panel',0)" id="webgb_panel_hide" style="display:inline"><img src="/gbrowse2/images/buttons/minus.png" alt="-" />&nbsp;<span class="tctl"><b>WebGBrowse Control Panel</b></span></div><div class="el_visible" id="webgb_panel" style="display:inline"><table class="searchtitle" border="0" cellspacing="0" width="100%"><tr class="searchbody"><td width="20%"><input type="button" class="ctrlpnlbtn" name="cmdEdit" value="Edit Configuration" onclick="location.href='http://webgbrowse.cgb.indiana.edu/cgi-bin/webgbrowse/configureTracks?tsd=$timeStampDigest';" /></td><td width="80%">Click <b>Edit Configuration</b> to return to the track configuration panel</td></tr><tr class="searchbody"><td><input type="button" class="ctrlpnlbtn" name="cmdDownload" value="Download Configuration" onclick="window.open('http://webgbrowse.cgb.indiana.edu/cgi-bin/webgbrowse/downloadConf2?tsd=$timeStampDigest');" /></td><td>Click <b>Download Configuration</b> to download the configuration file</td></tr></table></div></div></a> #WEBGB#\n);
 
 print CONFIGURATION $conf;
 close CONFIGURATION;
@@ -130,7 +130,7 @@ unless ($emailAddress eq '') {
 		my $content  = qq(
 Dear WebGBrowse user,
 	Your dataset ($description) is successfully configured and hosted by WebGBrowse. You can view your GBrowse display by copying and pasting the following URL in your browser. 
-	http://$ENV{'SERVER_NAME'}/cgi-bin/gbrowse/$timeStampDigest/
+	http://$ENV{'SERVER_NAME'}/cgi-bin/gb2/gbrowse/$timeStampDigest/
 
 	You can also view your previous datasets using the URL below.
 
@@ -157,7 +157,7 @@ Indiana University
 }
 
 print $q->redirect( 
-	-location => 'http://webgbrowse2.cgb.indiana.edu/cgi-bin/gb2/gbrowse/' . $timeStampDigest
+	-location => 'http://$ENV{'SERVER_NAME'}/cgi-bin/gb2/gbrowse/' . $timeStampDigest
 ); 
 exit(0);
 

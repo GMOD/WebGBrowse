@@ -3,7 +3,7 @@
 use warnings;
 use strict;
 
-use lib '../lib';
+use lib '../../lib';
 use CGI qw(:standard);
 use WebGB;
 use WebGB::GeneralData;
@@ -52,8 +52,6 @@ my $saveLabel = 'Save Progress';
 
 if ($ENV{REQUEST_METHOD} eq 'POST') { 
 	my ($referer, $url) = ($ENV{HTTP_REFERER}, $ENV{SERVER_NAME} . $ENV{SCRIPT_NAME}); 
-	$url = $ENV{SERVER_NAME} . ':' . $ENV{SERVER_PORT} . $ENV{SCRIPT_NAME} if ($ENV{SERVER_PORT} && ($ENV{SERVER_PORT} ne '80'));
-	$referer = '' unless ($referer);
 	$isPostBack = 1 if ($referer =~ /$url/); 
 }
 
@@ -97,7 +95,7 @@ Indiana University
 			print SENDMAIL $content;
 			close(SENDMAIL);
 			print $q->redirect(
-				-location => "/cgi-bin/progressSaved?tsd=$timeStampDigest"
+				-location => "/cgi-bin/webgbrowse/progressSaved?tsd=$timeStampDigest"
 			);
 			exit 0;
 		} elsif ($postBackCommand eq $addLabel) {
@@ -110,7 +108,7 @@ Indiana University
 				$trackData->addTrack($feature, $glyph);
 				$trackData->saveTrackConfigurationToFile("$uploadDirectory/$trackConfigurationFile");
 				print $q->redirect(
-					-location => "/cgi-bin/configureGlyph?tsd=$timeStampDigest"
+					-location => "/cgi-bin/webgbrowse/configureGlyph?tsd=$timeStampDigest"
 				);
 				exit 0;
 			}
@@ -124,7 +122,7 @@ Indiana University
 				$trackData->editTrack($track);
 				$trackData->saveTrackConfigurationToFile("$uploadDirectory/$trackConfigurationFile");
 				print $q->redirect(
-					-location => "/cgi-bin/configureGlyph?tsd=$timeStampDigest"
+					-location => "/cgi-bin/webgbrowse/configureGlyph?tsd=$timeStampDigest"
 				);
 				exit(0);
 			}
@@ -143,7 +141,7 @@ Indiana University
 				if ($postBackCommand eq "$doneLabel $_") {
 					$_ = '' if ($_ eq '1.70');
 					print $q->redirect(
-						-location => "/cgi-bin/generateConfigurationData$_?tsd=$timeStampDigest"
+						-location => "/cgi-bin/webgbrowse/generateConfigurationData$_?tsd=$timeStampDigest"
 					);
 					exit(0);
 				}

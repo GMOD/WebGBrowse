@@ -3,7 +3,7 @@
 use warnings;
 use strict;
 
-use lib '../lib';
+use lib '../../lib';
 use CGI qw(:standard);
 use CGI::Session;
 use WebGB;
@@ -22,8 +22,6 @@ my $isPostBack = 0;
 
 if ($ENV{REQUEST_METHOD} eq 'POST') {
 	my ($referer, $url) = ($ENV{HTTP_REFERER}, $ENV{SERVER_NAME} . $ENV{SCRIPT_NAME});
-	$url = $ENV{SERVER_NAME} . ':' . $ENV{SERVER_PORT} . $ENV{SCRIPT_NAME} if ($ENV{SERVER_PORT} && ($ENV{SERVER_PORT} ne '80'));
-	$referer = '' unless ($referer);
 	$isPostBack = 1 if ($referer =~ /$url/);
 }
 
@@ -240,7 +238,7 @@ if ($isPostBack) {
 			$profileData->saveInputProfileToFile("$uploadDirectory/$inputProfileFile");
 	
 			 print $q->redirect(
-				-location => "/cgi-bin/configureTracks?tsd=$timeStampDigest",
+				-location => "/cgi-bin/webgbrowse/configureTracks?tsd=$timeStampDigest",
 				-cookie => $sessionCookie
 			);
 			exit(0);
@@ -256,11 +254,11 @@ unless ($isPostBack) {
 			<b>WebGBrowse - A Web Server for GBrowse</b>
 		</p>
 		<p align="justify">
-			The Generic Genome Browser (<a href="http://gmod.org/wiki/Gbrowse" target="_blank">GBrowse</a>) is one of the most widely used visualization tool for displaying genomic features along a reference sequence. However, the installation and configuration of GBrowse can be tedious for many biologists who are not computer savvy or lack adequate computational resources. <a href="/about.html">WebGBrowse</a> allows users to upload their genomic data and choose to display the features from a large variety of styles.
+			The Generic Genome Browser (<a href="http://gmod.org/wiki/Gbrowse" target="_blank">GBrowse</a>) is one of the most widely used visualization tool for displaying genomic features along a reference sequence. However, the installation and configuration of GBrowse can be tedious for many biologists who are not computer savvy or lack adequate computational resources. <a href="/webgbrowse/about.html">WebGBrowse</a> allows users to upload their genomic data and choose to display the features from a large variety of styles.
 		</p>
 
 		<p>
-			We recommend you to go through our <a href="/tutorial.html">tutorial</a> before starting to use WebGBrowse.
+			We recommend you to go through our <a href="/webgbrowse/tutorial.html">tutorial</a> before starting to use WebGBrowse.
 		</p>
 	);
 }
@@ -275,7 +273,7 @@ $pageContent .= qq(
 					</p>
 					<label>GFF3 File * </label>$errGFFInputFileMsg
 					<input type="file" name="$paramGFFInputFile" size="48" class="fileUpload" />
-					<p class="formHint">Upload GFF3 data file [<a href="/cgi-bin/downloadSample">Sample GFF3 file</a>]</p>
+					<p class="formHint">Upload GFF3 data file [<a href="/cgi-bin/webgbrowse/downloadSample">Sample GFF3 file</a>]</p>
 				</div>
 				<div class="ctrlHolder$errConfigFileCtrlHolderClass">
 					<p class="intro">
@@ -284,7 +282,7 @@ $pageContent .= qq(
 					</p>
 					<label>Configuration File to be used as a template</label>$errConfigFileMsg
 					<input type="file" name="$paramConfigFile" size="48" class="fileUpload" />
-					<p class="formHint">Upload a configuration file (optional) [<a href="/cgi-bin/downloadSampleConf">Sample Conf file</a>]</p>
+					<p class="formHint">Upload a configuration file (optional) [<a href="/cgi-bin/webgbrowse/downloadSampleConf">Sample Conf file</a>]</p>
 				</div>
 				<div class="ctrlHolder$errEMailAddressCtrlHolderClass">
 					<p class="intro">

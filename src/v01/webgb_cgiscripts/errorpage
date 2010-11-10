@@ -2,7 +2,7 @@
 
 use warnings;
 use strict;
-use lib '../lib';
+use lib '../../lib';
 use WebGB;
 use CGI qw(:standard);
 

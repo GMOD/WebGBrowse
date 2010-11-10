@@ -16,7 +16,7 @@ if ($timeStampDigest eq '') {
 	exit(0);
 }
 
-my $confFile =  $WebGB::CONF . '/gbrowse.conf/' . $timeStampDigest . '.conf'; 
+my $confFile =  $WebGB::CONF2 . '/' . $timeStampDigest . '.conf'; 
 open CONF, "<", $confFile or die "Can not open the specified file";
 my @confContent = <CONF>;
 close CONF;
@@ -25,12 +25,13 @@ for (my $i = 0; $i < scalar @confContent; $i++) {
 		splice(@confContent, $i, 1);
 		$i--;
 	}
-	if ($confContent[$i] =~ /\/research\/projects\/webgbrowse\/prod\/v01\/www/) {
-		$confContent[$i] =~ s/\/research\/projects\/webgbrowse\/prod\/v01\/www/HTDOCS/;
+	if ($confContent[$i] =~ /\/research\/projects\/webgbrowse\/prod\/v02\/www/) {
+		$confContent[$i] =~ s/\/research\/projects\/webgbrowse\/prod\/v02\/www/HTDOCS/;
 	}
 }
 print "Content-Type:text/x-download\n";
 print "Content-Disposition:attachment;filename=$timeStampDigest.conf\n\n";
+print "#Add these three lines in your GBrowse.conf file (with the # symbols removed)\n#[$timeStampDigest]\n#description = some description\n#path=$timeStampDigest.conf\n";
 print @confContent;
 exit(0);
 

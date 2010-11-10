@@ -50,21 +50,21 @@ sub getStartHtml {
 		'-author' => 'mnrusimh',
 		'-style' => [
 			{
-				'src' => '/include/css/site.css'
+				'src' => '/webgbrowse/include/css/site.css'
 			},
 			{
-				'src' => '/include/css/webgb_form.css'
+				'src' => '/webgbrowse/include/css/webgb_form.css'
 			}
 		],
 		'-script' => [
 			{ 
 				'-language' => 'Javascript', 
-				'-src' => '/include/js/jquery.js', 
+				'-src' => '/webgbrowse/include/js/jquery.js', 
 				'-type' => 'text/javascript' 
 			},
 			{
 				'-language' => 'Javascript',
-				'-src' => '/include/js/webgb_form.js',
+				'-src' => '/webgbrowse/include/js/webgb_form.js',
 				'-type' => 'text/javascript'
 			}
 		]
@@ -86,17 +86,17 @@ sub getContent {
 	my $content = qq(
 		        <div id="container">
                 <div id="header">
-                        <img src="/include/img/webgbrowse.jpg" alt="The Center for Genomics and Bioinformatics - WebGBrowse" />
+                        <img src="/webgbrowse/include/img/webgbrowse.jpg" alt="The Center for Genomics and Bioinformatics - WebGBrowse" />
                 </div>
                 <div class="navbar">
                         <ul id="topnav">
-                                <li><a href="/index.html">Home</a></li>
-                                <li><a href="/about.html">About</a></li>
-                                <li><a href="/tutorial.html">Tutorial</a></li>
-                                <li><a href="/glyphdoc.html">Glyph Library</a></li>
-                                <li><a href="/faq.html">FAQ</a></li>
-                                <li><a href="/software.html">Software</a></li>
-                                <li><a href="/support.html">Support</a></li>
+                                <li><a href="/webgbrowse/index.html">Home</a></li>
+                                <li><a href="/webgbrowse/about.html">About</a></li>
+                                <li><a href="/webgbrowse/tutorial.html">Tutorial</a></li>
+                                <li><a href="/webgbrowse/glyphdoc.html">Glyph Library</a></li>
+                                <li><a href="/webgbrowse/faq.html">FAQ</a></li>
+                                <li><a href="/webgbrowse/software.html">Software</a></li>
+                                <li><a href="/webgbrowse/support.html">Support</a></li>
                         </ul>
                 </div>
                 <div id="wrapper">
@@ -105,7 +105,7 @@ sub getContent {
                                 <div class="footer">
                                 <p>
                                         <a href="http://www.indiana.edu">
-                                                <img src= "/include/img/blockiu_white.gif" alt="IU" name= "iub_image" width="22" height="28" hspace="0" vspace="0" border="0" id="iub_image" longdesc= "http://www.indiana.edu" />
+                                                <img src= "/webgbrowse/include/img/blockiu_white.gif" alt="IU" name= "iub_image" width="22" height="28" hspace="0" vspace="0" border="0" id="iub_image" longdesc= "http://www.indiana.edu" />
                                         </a>
                                         <a href= "http://www.indiana.edu/comments/copyright.shtml" title="Copyright">
                                                 Copyright
@@ -118,6 +118,10 @@ sub getContent {
                                         <a href= "http://www.indiana.edu/comments/complaint.shtml" title="Copyright  Complaints">
                                                 Copyright Complaints
                                         </a>
+					|
+					<a href="http://gmod.org/">
+						<img src="http://gmod.org/w/images/e/e3/PoweredByGMOD80.png" alt="Powered by GMOD" style="border-width: 0" />
+					</a>
                                 </p>
                         </div>
                 </div>

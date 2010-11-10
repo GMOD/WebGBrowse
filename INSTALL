@@ -8,6 +8,8 @@ I. Prerequisites
 	- GBrowse (>= 1.70)
 	- MySQL
 	- Perl Modules
+		HTML::FormEngine
+		Clone
 		Digest::MD5
 		Archive::Extract
 		File::Copy
@@ -45,9 +47,13 @@ II. Installation
 	   All the extracted source files will be in a folder named "WebGBrowse".
 
 
-	3. Locate the cgi-bin directory for your apache instance and copy the contents of WebGBrowse/src/v01/webgb_cgiscripts into it.
+	3. Locate the cgi-bin directory for your apache instance and create a folder by name 'webgbrowse' in it.
+	
+	4. Copy the contents of WebGBrowse/src/v01/webgb_cgiscripts into the 'cgi-bin/webgbrowse' folder created in step 3.
 
-	4. Locate the htdocs directory for your apache instance and copy the contents of WebGBrowse/src/v01/webgb_pages into it.
+	5. Locate the htdocs directory for your apache instance and create a folder by name 'webgbrowse' in it.
+	
+	6. Copy the contents of WebGBrowse/src/v01/webgb_pages into the 'htdocs/webgbrowse' folder created in step 5.
 
 	5. Create a folder by name "lib" in the parent directory of the cgi-bin and copy the contents of WebGBrowse/src/v01/webgb_libraries into it.
 
@@ -101,6 +107,26 @@ II. Installation
 		);
 
 	12. Open the lib/WebGB/DBEngine.pm and edit the line 47 to provide the username and password for the mysql WebGB database.
+
+III. Testing the Installation (Optional)
+
+	You can test the installation by running the sample dataset. You should be able to complete all the steps described below without any problems, if WebGBrowse is properly installed.
+
+	1. Open a browser (preferrably Firefox 3.0 or above) and go to "http://myserver/webgbrowse/" (replace 'myserver' with the name of your server). This should open WebGBrowse startup page.
+	
+	2. Click the link "Sample GFF3 file" to download the "volvox.gff3" file.
+
+	3. Click the link "Sample Conf file" to download the "volvox.conf" file.
+
+	4. Click the "Browse..." button in the "GFF3 File" section of the WebGBrowse Input Form and select the file, volvox.gff3, you downloaded in Step 2.
+
+	5. Click the "Browse..." button in the "Configuration file to be used as template" section of the WebGBrowse Input Form and select the file, volvox.conf, you downloaded in Step 3.
+
+	6. Click Submit and you will see a new screen with three sections "Describe Your Dataset", "Add New Track" and "Tracks Added".
+
+	7. Click the button "Display in GBrowse x.x" in the "Tracks Added" section (x.x will be the version number of GBrowse).
+
+	8. You should be taken to the GBrowse display page showing data from volvox.gff3 as tracks defined in volvox.conf. This should confirm your installation.
 
 If you have any questions, please contact biohelp@cgb.indiana.edu or gmod-webgbrowse@lists.sourceforge.net.
 

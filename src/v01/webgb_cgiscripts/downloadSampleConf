@@ -3,12 +3,12 @@
 use warnings;
 use strict;
 
-use lib '../lib';
+use lib '../../lib';
 use WebGB;
 use CGI qw(:standard);
 
 my $q = new CGI;
-my $sampleFile =  $WebGB::WWW . '/files/volvox.conf'; 
+my $sampleFile =  $WebGB::WWW . '/webgbrowse/files/volvox.conf'; 
 open SAMPLE, "<", $sampleFile or die "Can not open the specified file";
 my @sampleContent = <SAMPLE>;
 close SAMPLE;
