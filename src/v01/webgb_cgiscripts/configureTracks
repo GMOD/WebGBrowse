@@ -265,14 +265,14 @@ $content .= qq(
 						</td>
 						<td width="25%" valign="top">
 							<label class="complex">Glyph &nbsp; &nbsp; &nbsp; (<a href="/glyphdoc.html" target="_blank">What is a glyph?</a>)</label> 
-							<select name="$paramGlyph" size="1" onChange="txtGlyphDescription.value = glyphDescription[$paramGlyph.value];imgGlyph.src='/include/img/glyphs/' + $paramGlyph.value + '.jpg';" class="complex">
+							<select name="$paramGlyph" size="1" onChange="txtGlyphDescription.value = glyphDescription[$paramGlyph.value];imgGlyph.src='/webgbrowse/include/img/glyphs/' + $paramGlyph.value + '.jpg';" class="complex">
 								$glyphList
 							</select>
 							<br><br>
 							<textarea rows="5" cols="80" readonly="yes" name="txtGlyphDescription" class="subComplex">) . $trackData->getGlyphDescription($glyph) . qq(</textarea>
 						</td>
 						<td width="50%" valign="middle">
-							<img src="/include/img/glyphs/$glyph.jpg" name="imgGlyph" />
+							<img src="/webgbrowse/include/img/glyphs/$glyph.jpg" name="imgGlyph" />
 						</td>
 					</tr>
 				</table>
