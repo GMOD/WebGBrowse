@@ -157,7 +157,7 @@ Indiana University
 }
 
 print $q->redirect( 
-	-location => 'http://$ENV{'SERVER_NAME'}/cgi-bin/gb2/gbrowse/' . $timeStampDigest
+	-location => "http://$ENV{'SERVER_NAME'}/cgi-bin/gb2/gbrowse/$timeStampDigest"
 ); 
 exit(0);
 

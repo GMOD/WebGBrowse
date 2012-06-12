@@ -164,7 +164,7 @@ sub isValidEMail {
 
 sub logError {
 	my ($q, $msg, $status) = @_;
-	return $q->redirect("/cgi-bin/errorpage?status=$status&msg=$msg");
+	return $q->redirect("/cgi-bin/webgbrowse/errorpage?status=$status&msg=$msg");
 }
 
 
